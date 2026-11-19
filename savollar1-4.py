@@ -164,12 +164,10 @@ sec_daily = sec_daily[sec_daily["n_firms"] >= 3]
 sec_pivot = sec_daily.pivot(index="date", columns="sector_clean", values="sec_ret").sort_index()
 
 sec_cum_ret = ((1.0 + sec_pivot.fillna(0.0)).prod(axis=0) - 1.0) * 100.0
-sec_cum_series = sec_cum_ret.copy()
-sec_cum_series.index.name = "sector"
-q2_sector_cum_df = (
-    sec_cum_series.sort_values(ascending=False)
-    .reset_index(name="cum_return_pct")
-)
+q2_sector_cum_df = pd.DataFrame({
+    "sector": [str(i) for i in sec_cum_ret.index],
+    "cum_return_pct": sec_cum_ret.to_numpy(dtype="float64"),
+}).sort_values("cum_return_pct", ascending=False, kind="mergesort").reset_index(drop=True)
 
 disp_df = pd.DataFrame({
     "daily_std": sec_pivot.std(axis=1, skipna=True),
@@ -190,7 +188,7 @@ for col in sec_pivot.columns:
     var_drop = base_var - sub_var if (pd.notna(base_var) and pd.notna(sub_var)) else np.nan
     share_pct = (var_drop / base_var * 100.0) if (pd.notna(var_drop) and base_var > 0) else np.nan
     driver_rows.append({
-        "sector": col,
+        "sector": str(col),
         "var_drop_when_excluded": var_drop,
         "share_of_dispersion_pct": share_pct,
     })
@@ -213,12 +211,15 @@ upper_mask = np.triu(np.ones(full_corr.shape, dtype=bool), k=1)
 full_pairs = full_corr.where(upper_mask).stack()
 q3_overall_corr = ci95_mean(full_pairs)
 
+pair_rows = []
+for (sa, sb), val in full_pairs.items():
+    pair_rows.append({"sector_a": str(sa), "sector_b": str(sb), "correlation": float(val)})
 q3_top30_pairs_df = (
-    full_pairs.sort_values(ascending=False)
+    pd.DataFrame(pair_rows)
+    .sort_values("correlation", ascending=False, kind="mergesort")
     .head(30)
-    .reset_index()
+    .reset_index(drop=True)
 )
-q3_top30_pairs_df.columns = ["sector_a", "sector_b", "correlation"]
 
 roll_30 = c_pivot.rolling(30, min_periods=10).corr()
 roll_series_rows = []
@@ -367,48 +368,3 @@ with open(txt_out, "w", encoding="utf-8") as tf:
     tf.write("[Top 30 Correlated Sector Pairs]\n" + q3_top30_pairs_df.to_string(index=False) + "\n\n")
 
     tf.write("--- Q4: VOLUME SPIKE — LEAD VS FOLLOW (+5, +10, +20 DAYS & SENSITIVITY) ---\n")
-    for d_key, d_val in q4_results_by_def.items():
-        tf.write(f"[{d_key}]\n")
-        for horizon in ("pre_5d_pct", "pre_10d_pct", "pre_20d_pct", "post_5d_pct", "post_10d_pct", "post_20d_pct"):
-            h = d_val[horizon]
-            tf.write(f"  {horizon:12s}: mean={h['mean']:+.3f}% [{h['ci95_low']:+.3f}, {h['ci95_high']:+.3f}] (n={h['n']})\n")
-    tf.write("\n[Top 30 Volume Spike Events (base_med20_ge_2.0x)]\n" + q4_top30_spikes_df.to_string(index=False) + "\n")
-
-fig, axes = plt.subplots(2, 2, figsize=(16, 11))
-fig.patch.set_facecolor("white")
-
-p1 = q1_sector_moves_df.head(12).iloc[::-1]
-axes[0, 0].barh(p1["sector"], p1["mean_abs_rank_move"])
-axes[0, 0].set_title("Q1: Top 12 Sectors by Mean |Rank Move|")
-axes[0, 0].set_xlabel("Mean |Rank Change|")
-
-p2 = q2_sector_cum_df.head(12).iloc[::-1]
-axes[0, 1].barh(p2["sector"], p2["cum_return_pct"])
-axes[0, 1].set_title("Q2: Top 12 Sectors by Cumulative Return (%)")
-axes[0, 1].set_xlabel("Cumulative Return (%)")
-
-if len(roll_corr_df) > 0:
-    axes[1, 0].plot(roll_corr_df["date"], roll_corr_df["roll30_mean_corr"])
-    axes[1, 0].set_title("Q3: Rolling 30-Day Mean Cross-Sector Correlation")
-    axes[1, 0].set_xlabel("Trading Date")
-    axes[1, 0].tick_params(axis="x", rotation=25)
-
-regimes = ["Sharp Market Days", "Ordinary Days"]
-corr_means = [q3_sharp_ci["mean"], q3_ordinary_ci["mean"]]
-axes[1, 1].bar(regimes, corr_means)
-axes[1, 1].set_title("Q3: Cross-Sector Correlation (Sharp vs Ordinary)")
-axes[1, 1].set_ylabel("Mean Pairwise Correlation")
-
-for ax in axes.flat:
-    ax.grid(True, linestyle="--", alpha=0.4)
-
-plt.tight_layout()
-chart_out = os.path.join(OUT_DIR, "q1_q4_overview.png")
-plt.savefig(chart_out, dpi=200)
-plt.close(fig)
-
-print("=== Q1-Q4 UNIFIED ANALYSIS COMPLETE ===")
-print(f"Unified report TXT: {txt_out}")
-print(f"Unified results JSON: {json_out}")
-print(f"Defect log CSV: {defect_audit_path}")
-print(f"Chart PNG: {chart_out}")
