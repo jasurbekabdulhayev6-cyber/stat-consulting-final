@@ -164,9 +164,10 @@ sec_daily = sec_daily[sec_daily["n_firms"] >= 3]
 sec_pivot = sec_daily.pivot(index="date", columns="sector_clean", values="sec_ret").sort_index()
 
 sec_cum_ret = ((1.0 + sec_pivot.fillna(0.0)).prod(axis=0) - 1.0) * 100.0
+sec_cum_series = sec_cum_ret.copy()
+sec_cum_series.index.name = "sector"
 q2_sector_cum_df = (
-    sec_cum_ret.sort_values(ascending=False)
-    .rename_axis("sector")
+    sec_cum_series.sort_values(ascending=False)
     .reset_index(name="cum_return_pct")
 )
 
