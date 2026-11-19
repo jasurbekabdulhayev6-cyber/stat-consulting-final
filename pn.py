@@ -7,7 +7,7 @@ from bs4 import BeautifulSoup
 os.makedirs('data/daily', exist_ok=True)
 os.makedirs('logs', exist_ok=True)
 
-# 1 haftalik (dastlabki 5 ta savdo kuni) test
+# 1 haftalik test: dastlabki 5 ta savdo kuni
 folders = sorted(glob.glob('/mnt/data/stock/20*'))[:5]
 defect_file = 'logs/defect_log_1week.csv'
 
@@ -29,6 +29,7 @@ with open(defect_file, 'w', newline='', encoding='utf-8') as df_out:
             try:
                 with open(fpath, 'rb') as f:
                     raw = f.read()
+
                 if len(raw) < 500:
                     defect_writer.writerow([date_str, fname, code, 'EMPTY_OR_TINY_FILE', f'size={len(raw)}'])
                     continue
@@ -40,6 +41,7 @@ with open(defect_file, 'w', newline='', encoding='utf-8') as df_out:
                         break
                     except UnicodeDecodeError:
                         continue
+
                 if txt is None:
                     txt = raw.decode('cp949', errors='replace')
                     defect_writer.writerow([date_str, fname, code, 'ENCODING_REPLACE', 'cp949 fallback'])
@@ -57,8 +59,7 @@ with open(defect_file, 'w', newline='', encoding='utf-8') as df_out:
 
                 vol_val = ''
                 for td in soup.select('table.no_info td'):
-                    t = td.get_text(" ", strip=True)
-                    if '거래량' in t:
+                    if '거래량' in td.get_text(" ", strip=True):
                         b = td.select_one('.blind')
                         if b:
                             vol_val = re.sub(r'[^\d]', '', b.get_text())
@@ -98,4 +99,4 @@ with open(defect_file, 'w', newline='', encoding='utf-8') as df_out:
 
         print(f"[{idx}/{len(folders)}] {date_str}: {len(rows_out)}/{len(html_files)} ta saqlandi.")
 
-print("1 haftalik test tugadi. Log:", defect_file)
+print("1 haftalik test yakunlandi. Log:", defect_file)
