@@ -1,0 +1,1984 @@
+{
+  "period": {
+    "start_date": "2024-03-27",
+    "end_date": "2026-09-02",
+    "total_raw_rows": 2403074
+  },
+  "defect_log": {
+    "extreme_daily_return_filtered_rows": 371,
+    "by_issue": [
+      {
+        "issue_type": "missing_or_nonpos_close",
+        "affected_rows": 294,
+        "share_pct": 0.012234329862501113
+      },
+      {
+        "issue_type": "missing_or_nonpos_mktcap",
+        "affected_rows": 36,
+        "share_pct": 0.0014980812076531974
+      },
+      {
+        "issue_type": "unknown_or_missing_sector",
+        "affected_rows": 822750,
+        "share_pct": 34.23739759990745
+      },
+      {
+        "issue_type": "missing_or_neg_volume",
+        "affected_rows": 2403074,
+        "share_pct": 100.0
+      }
+    ]
+  },
+  "q1_market_cap_ranking": {
+    "top30_retained_count": 17,
+    "top30_newcomers_count": 13,
+    "top30_exited_count": 13,
+    "newcomer_sectors_count": {
+      "전기장비": 3,
+      "은행": 2,
+      "조선": 2,
+      "반도체와반도체장비": 1,
+      "우주항공과국방": 1,
+      "전자장비와기기": 1,
+      "전기제품": 1,
+      "비철금속": 1,
+      "Unknown_Sector": 1
+    },
+    "top30_start": [
+      {
+        "code": "005930",
+        "name": "삼성전자",
+        "sector": "반도체와반도체장비",
+        "start_rank": 1.0,
+        "start_mktcap": 4763886.0
+      },
+      {
+        "code": "000660",
+        "name": "SK하이닉스",
+        "sector": "반도체와반도체장비",
+        "start_rank": 2.0,
+        "start_mktcap": 1319140.0
+      },
+      {
+        "code": "373220",
+        "name": "LG에너지솔루션",
+        "sector": "전기제품",
+        "start_rank": 3.0,
+        "start_mktcap": 957060.0
+      },
+      {
+        "code": "207940",
+        "name": "삼성바이오로직스",
+        "sector": "제약",
+        "start_rank": 4.0,
+        "start_mktcap": 595015.0
+      },
+      {
+        "code": "005935",
+        "name": "삼성전자우",
+        "sector": "반도체와반도체장비",
+        "start_rank": 5.0,
+        "start_mktcap": 549688.0
+      },
+      {
+        "code": "005380",
+        "name": "현대차",
+        "sector": "자동차",
+        "start_rank": 6.0,
+        "start_mktcap": 516137.0
+      },
+      {
+        "code": "000270",
+        "name": "기아",
+        "sector": "자동차",
+        "start_rank": 7.0,
+        "start_mktcap": 456722.0
+      },
+      {
+        "code": "068270",
+        "name": "셀트리온",
+        "sector": "제약",
+        "start_rank": 8.0,
+        "start_mktcap": 401648.0
+      },
+      {
+        "code": "005490",
+        "name": "POSCO홀딩스",
+        "sector": "철강",
+        "start_rank": 9.0,
+        "start_mktcap": 361965.0
+      },
+      {
+        "code": "051910",
+        "name": "LG화학",
+        "sector": "화학",
+        "start_rank": 10.0,
+        "start_mktcap": 313430.0
+      },
+      {
+        "code": "035420",
+        "name": "NAVER",
+        "sector": "양방향미디어와서비스",
+        "start_rank": 11.0,
+        "start_mktcap": 307439.0
+      },
+      {
+        "code": "028260",
+        "name": "삼성물산",
+        "sector": "복합기업",
+        "start_rank": 12.0,
+        "start_mktcap": 292678.0
+      },
+      {
+        "code": "105560",
+        "name": "KB금융",
+        "sector": "은행",
+        "start_rank": 13.0,
+        "start_mktcap": 278423.0
+      },
+      {
+        "code": "012330",
+        "name": "현대모비스",
+        "sector": "자동차부품",
+        "start_rank": 14.0,
+        "start_mktcap": 247718.0
+      },
+      {
+        "code": "035720",
+        "name": "카카오",
+        "sector": "양방향미디어와서비스",
+        "start_rank": 15.0,
+        "start_mktcap": 243944.0
+      },
+      {
+        "code": "003670",
+        "name": "포스코퓨처엠",
+        "sector": "화학",
+        "start_rank": 16.0,
+        "start_mktcap": 241685.0
+      },
+      {
+        "code": "032830",
+        "name": "삼성생명",
+        "sector": "생명보험",
+        "start_rank": 17.0,
+        "start_mktcap": 188200.0
+      },
+      {
+        "code": "086790",
+        "name": "하나금융지주",
+        "sector": "은행",
+        "start_rank": 18.0,
+        "start_mktcap": 172198.0
+      },
+      {
+        "code": "138040",
+        "name": "메리츠금융지주",
+        "sector": "증권",
+        "start_rank": 19.0,
+        "start_mktcap": 163104.0
+      },
+      {
+        "code": "066570",
+        "name": "LG전자",
+        "sector": "전자제품",
+        "start_rank": 20.0,
+        "start_mktcap": 158738.0
+      },
+      {
+        "code": "000810",
+        "name": "삼성화재",
+        "sector": "손해보험",
+        "start_rank": 21.0,
+        "start_mktcap": 145441.0
+      },
+      {
+        "code": "015760",
+        "name": "한국전력",
+        "sector": "전기유틸리티",
+        "start_rank": 22.0,
+        "start_mktcap": 142195.0
+      },
+      {
+        "code": "034730",
+        "name": "SK",
+        "sector": "복합기업",
+        "start_rank": 23.0,
+        "start_mktcap": 135563.0
+      },
+      {
+        "code": "323410",
+        "name": "카카오뱅크",
+        "sector": "은행",
+        "start_rank": 24.0,
+        "start_mktcap": 134492.0
+      },
+      {
+        "code": "259960",
+        "name": "크래프톤",
+        "sector": "게임엔터테인먼트",
+        "start_rank": 25.0,
+        "start_mktcap": 124297.0
+      },
+      {
+        "code": "018260",
+        "name": "삼성에스디에스",
+        "sector": "IT서비스",
+        "start_rank": 26.0,
+        "start_mktcap": 123727.0
+      },
+      {
+        "code": "033780",
+        "name": "KT&G",
+        "sector": "담배",
+        "start_rank": 27.0,
+        "start_mktcap": 122373.0
+      },
+      {
+        "code": "024110",
+        "name": "기업은행",
+        "sector": "은행",
+        "start_rank": 28.0,
+        "start_mktcap": 117939.0
+      },
+      {
+        "code": "017670",
+        "name": "SK텔레콤",
+        "sector": "무선통신서비스",
+        "start_rank": 29.0,
+        "start_mktcap": 116201.0
+      },
+      {
+        "code": "096770",
+        "name": "SK이노베이션",
+        "sector": "석유와가스",
+        "start_rank": 30.0,
+        "start_mktcap": 115553.0
+      }
+    ],
+    "top30_end": [
+      {
+        "code": "005930",
+        "name": "삼성전자",
+        "sector": "반도체와반도체장비",
+        "end_rank": 1.0,
+        "end_mktcap": 14644928.0
+      },
+      {
+        "code": "000660",
+        "name": "SK하이닉스",
+        "sector": "반도체와반도체장비",
+        "end_rank": 2.0,
+        "end_mktcap": 11782842.0
+      },
+      {
+        "code": "005935",
+        "name": "삼성전자우",
+        "sector": "반도체와반도체장비",
+        "end_rank": 3.0,
+        "end_mktcap": 1488399.0
+      },
+      {
+        "code": "402340",
+        "name": "SK스퀘어",
+        "sector": "반도체와반도체장비",
+        "end_rank": 4.0,
+        "end_mktcap": 1295494.0
+      },
+      {
+        "code": "009150",
+        "name": "삼성전기",
+        "sector": "전자장비와기기",
+        "end_rank": 5.0,
+        "end_mktcap": 1045712.0
+      },
+      {
+        "code": "373220",
+        "name": "LG에너지솔루션",
+        "sector": "전기제품",
+        "end_rank": 6.0,
+        "end_mktcap": 813150.0
+      },
+      {
+        "code": "005380",
+        "name": "현대차",
+        "sector": "자동차",
+        "end_rank": 7.0,
+        "end_mktcap": 773984.0
+      },
+      {
+        "code": "207940",
+        "name": "삼성바이오로직스",
+        "sector": "제약",
+        "end_rank": 8.0,
+        "end_mktcap": 694827.0
+      },
+      {
+        "code": "028260",
+        "name": "삼성물산",
+        "sector": "복합기업",
+        "end_rank": 9.0,
+        "end_mktcap": 604885.0
+      },
+      {
+        "code": "105560",
+        "name": "KB금융",
+        "sector": "은행",
+        "end_rank": 10.0,
+        "end_mktcap": 599777.0
+      },
+      {
+        "code": "032830",
+        "name": "삼성생명",
+        "sector": "생명보험",
+        "end_rank": 11.0,
+        "end_mktcap": 588000.0
+      },
+      {
+        "code": "012450",
+        "name": "한화에어로스페이스",
+        "sector": "우주항공과국방",
+        "end_rank": 12.0,
+        "end_mktcap": 528525.0
+      },
+      {
+        "code": "055550",
+        "name": "신한지주",
+        "sector": "은행",
+        "end_rank": 13.0,
+        "end_mktcap": 518743.0
+      },
+      {
+        "code": "000270",
+        "name": "기아",
+        "sector": "자동차",
+        "end_rank": 14.0,
+        "end_mktcap": 485674.0
+      },
+      {
+        "code": "329180",
+        "name": "HD현대중공업",
+        "sector": "조선",
+        "end_rank": 15.0,
+        "end_mktcap": 442936.0
+      },
+      {
+        "code": "006400",
+        "name": "삼성SDI",
+        "sector": "전기제품",
+        "end_rank": 16.0,
+        "end_mktcap": 433550.0
+      },
+      {
+        "code": "068270",
+        "name": "셀트리온",
+        "sector": "제약",
+        "end_rank": 17.0,
+        "end_mktcap": 433366.0
+      },
+      {
+        "code": "034730",
+        "name": "SK",
+        "sector": "석유와가스",
+        "end_rank": 18.0,
+        "end_mktcap": 395140.0
+      },
+      {
+        "code": "012330",
+        "name": "현대모비스",
+        "sector": "자동차부품",
+        "end_rank": 19.0,
+        "end_mktcap": 373205.0
+      },
+      {
+        "code": "066570",
+        "name": "LG전자",
+        "sector": "전자제품",
+        "end_rank": 20.0,
+        "end_mktcap": 326584.0
+      },
+      {
+        "code": "035420",
+        "name": "NAVER",
+        "sector": "양방향미디어와서비스",
+        "end_rank": 21.0,
+        "end_mktcap": 317840.0
+      },
+      {
+        "code": "010120",
+        "name": "LS ELECTRIC",
+        "sector": "전기장비",
+        "end_rank": 22.0,
+        "end_mktcap": 293550.0
+      },
+      {
+        "code": "000810",
+        "name": "삼성화재",
+        "sector": "손해보험",
+        "end_rank": 23.0,
+        "end_mktcap": 293334.0
+      },
+      {
+        "code": "005490",
+        "name": "POSCO홀딩스",
+        "sector": "철강",
+        "end_rank": 24.0,
+        "end_mktcap": 261497.0
+      },
+      {
+        "code": "298040",
+        "name": "효성중공업",
+        "sector": "전기장비",
+        "end_rank": 25.0,
+        "end_mktcap": 257824.0
+      },
+      {
+        "code": "267260",
+        "name": "HD현대일렉트릭",
+        "sector": "전기장비",
+        "end_rank": 26.0,
+        "end_mktcap": 256295.0
+      },
+      {
+        "code": "316140",
+        "name": "우리금융지주",
+        "sector": "은행",
+        "end_rank": 27.0,
+        "end_mktcap": 254191.0
+      },
+      {
+        "code": "010130",
+        "name": "고려아연",
+        "sector": "비철금속",
+        "end_rank": 28.0,
+        "end_mktcap": 253815.0
+      },
+      {
+        "code": "042660",
+        "name": "한화오션",
+        "sector": "조선",
+        "end_rank": 29.0,
+        "end_mktcap": 251259.0
+      },
+      {
+        "code": "069500",
+        "name": "KODEX 200",
+        "sector": "Unknown_Sector",
+        "end_rank": 30.0,
+        "end_mktcap": 241466.0
+      }
+    ],
+    "sector_ranking_moves": [
+      {
+        "sector": "컴퓨터와주변기기",
+        "n_firms": 2,
+        "mean_abs_rank_move": 2319.5,
+        "abs_ci95_low": 1326.76,
+        "abs_ci95_high": 3312.24,
+        "mean_signed_rank_gain": -2319.5
+      },
+      {
+        "sector": "판매업체",
+        "n_firms": 2,
+        "mean_abs_rank_move": 2007.0,
+        "abs_ci95_low": 1309.2400000000002,
+        "abs_ci95_high": 2704.7599999999998,
+        "mean_signed_rank_gain": -2007.0
+      },
+      {
+        "sector": "건축제품",
+        "n_firms": 4,
+        "mean_abs_rank_move": 2002.25,
+        "abs_ci95_low": 982.9050912309742,
+        "abs_ci95_high": 3021.594908769026,
+        "mean_signed_rank_gain": -2002.25
+      },
+      {
+        "sector": "교육서비스",
+        "n_firms": 4,
+        "mean_abs_rank_move": 1959.0,
+        "abs_ci95_low": 1276.4747334591439,
+        "abs_ci95_high": 2641.525266540856,
+        "mean_signed_rank_gain": -1959.0
+      },
+      {
+        "sector": "생물공학",
+        "n_firms": 2,
+        "mean_abs_rank_move": 1925.5,
+        "abs_ci95_low": 1559.96,
+        "abs_ci95_high": 2291.04,
+        "mean_signed_rank_gain": -1925.5
+      },
+      {
+        "sector": "종이와목재",
+        "n_firms": 10,
+        "mean_abs_rank_move": 1829.6,
+        "abs_ci95_low": 1358.7709737938599,
+        "abs_ci95_high": 2300.42902620614,
+        "mean_signed_rank_gain": -1829.6
+      },
+      {
+        "sector": "음료",
+        "n_firms": 9,
+        "mean_abs_rank_move": 1649.6666666666667,
+        "abs_ci95_low": 949.491357285747,
+        "abs_ci95_high": 2349.8419760475863,
+        "mean_signed_rank_gain": -1649.6666666666667
+      },
+      {
+        "sector": "가정용품",
+        "n_firms": 2,
+        "mean_abs_rank_move": 1633.5,
+        "abs_ci95_low": 1236.6,
+        "abs_ci95_high": 2030.4,
+        "mean_signed_rank_gain": -1633.5
+      },
+      {
+        "sector": "레저용장비와제품",
+        "n_firms": 2,
+        "mean_abs_rank_move": 1601.0,
+        "abs_ci95_low": 748.4000000000002,
+        "abs_ci95_high": 2453.6,
+        "mean_signed_rank_gain": -1601.0
+      },
+      {
+        "sector": "부동산",
+        "n_firms": 5,
+        "mean_abs_rank_move": 1554.6,
+        "abs_ci95_low": 670.8650157790514,
+        "abs_ci95_high": 2438.334984220948,
+        "mean_signed_rank_gain": -1554.6
+      },
+      {
+        "sector": "건축자재",
+        "n_firms": 31,
+        "mean_abs_rank_move": 1548.1935483870968,
+        "abs_ci95_low": 1179.0759294889176,
+        "abs_ci95_high": 1917.311167285276,
+        "mean_signed_rank_gain": -1548.1935483870968
+      },
+      {
+        "sector": "포장재",
+        "n_firms": 16,
+        "mean_abs_rank_move": 1520.25,
+        "abs_ci95_low": 1075.6874082389147,
+        "abs_ci95_high": 1964.8125917610853,
+        "mean_signed_rank_gain": -1520.25
+      },
+      {
+        "sector": "식품과기본식료품소매",
+        "n_firms": 2,
+        "mean_abs_rank_move": 1439.0,
+        "abs_ci95_low": 541.3200000000002,
+        "abs_ci95_high": 2336.68,
+        "mean_signed_rank_gain": -1439.0
+      },
+      {
+        "sector": "가구",
+        "n_firms": 7,
+        "mean_abs_rank_move": 1429.5714285714287,
+        "abs_ci95_low": 695.369319430719,
+        "abs_ci95_high": 2163.7735377121385,
+        "mean_signed_rank_gain": -1429.5714285714287
+      },
+      {
+        "sector": "출판",
+        "n_firms": 2,
+        "mean_abs_rank_move": 1266.5,
+        "abs_ci95_low": 167.92000000000007,
+        "abs_ci95_high": 2365.08,
+        "mean_signed_rank_gain": -1266.5
+      },
+      {
+        "sector": "자동차부품",
+        "n_firms": 73,
+        "mean_abs_rank_move": 1249.164383561644,
+        "abs_ci95_low": 1051.595421353661,
+        "abs_ci95_high": 1446.7333457696268,
+        "mean_signed_rank_gain": -1243.7945205479452
+      },
+      {
+        "sector": "섬유,의류,신발,호화품",
+        "n_firms": 45,
+        "mean_abs_rank_move": 1247.0222222222221,
+        "abs_ci95_low": 992.8705438490217,
+        "abs_ci95_high": 1501.1739005954225,
+        "mean_signed_rank_gain": -1247.0222222222221
+      },
+      {
+        "sector": "상업서비스와공급품",
+        "n_firms": 9,
+        "mean_abs_rank_move": 1224.4444444444443,
+        "abs_ci95_low": 679.0694685373361,
+        "abs_ci95_high": 1769.8194203515527,
+        "mean_signed_rank_gain": -1224.4444444444443
+      },
+      {
+        "sector": "방송과엔터테인먼트",
+        "n_firms": 8,
+        "mean_abs_rank_move": 1149.25,
+        "abs_ci95_low": 427.3573084592143,
+        "abs_ci95_high": 1871.1426915407856,
+        "mean_signed_rank_gain": -1149.25
+      },
+      {
+        "sector": "건설",
+        "n_firms": 39,
+        "mean_abs_rank_move": 1143.820512820513,
+        "abs_ci95_low": 800.0055822872281,
+        "abs_ci95_high": 1487.6354433537977,
+        "mean_signed_rank_gain": -1128.5384615384614
+      },
+      {
+        "sector": "식품",
+        "n_firms": 52,
+        "mean_abs_rank_move": 1140.4615384615386,
+        "abs_ci95_low": 874.6090644182511,
+        "abs_ci95_high": 1406.314012504826,
+        "mean_signed_rank_gain": -1137.2307692307693
+      },
+      {
+        "sector": "디스플레이장비및부품",
+        "n_firms": 3,
+        "mean_abs_rank_move": 1122.6666666666667,
+        "abs_ci95_low": -247.12905150123265,
+        "abs_ci95_high": 2492.4623848345664,
+        "mean_signed_rank_gain": -1122.6666666666667
+      },
+      {
+        "sector": "비철금속",
+        "n_firms": 26,
+        "mean_abs_rank_move": 1114.7307692307693,
+        "abs_ci95_low": 863.1222321710633,
+        "abs_ci95_high": 1366.3393062904752,
+        "mean_signed_rank_gain": -1113.8846153846155
+      },
+      {
+        "sector": "제약",
+        "n_firms": 60,
+        "mean_abs_rank_move": 1067.65,
+        "abs_ci95_low": 831.4835673142236,
+        "abs_ci95_high": 1303.8164326857766,
+        "mean_signed_rank_gain": -1057.7166666666667
+      },
+      {
+        "sector": "통신장비",
+        "n_firms": 2,
+        "mean_abs_rank_move": 1059.0,
+        "abs_ci95_low": -577.5999999999999,
+        "abs_ci95_high": 2695.6,
+        "mean_signed_rank_gain": -1059.0
+      },
+      {
+        "sector": "철강",
+        "n_firms": 36,
+        "mean_abs_rank_move": 1043.861111111111,
+        "abs_ci95_low": 805.7608591572464,
+        "abs_ci95_high": 1281.9613630649758,
+        "mean_signed_rank_gain": -1043.861111111111
+      },
+      {
+        "sector": "항공화물운송과물류",
+        "n_firms": 10,
+        "mean_abs_rank_move": 1020.4,
+        "abs_ci95_low": 554.6337041457618,
+        "abs_ci95_high": 1486.1662958542381,
+        "mean_signed_rank_gain": -1020.4
+      },
+      {
+        "sector": "기계",
+        "n_firms": 20,
+        "mean_abs_rank_move": 945.0,
+        "abs_ci95_low": 637.7525237069943,
+        "abs_ci95_high": 1252.2474762930055,
+        "mean_signed_rank_gain": -936.1
+      },
+      {
+        "sector": "무선통신서비스",
+        "n_firms": 3,
+        "mean_abs_rank_move": 887.3333333333334,
+        "abs_ci95_low": -830.2833548845136,
+        "abs_ci95_high": 2604.9500215511803,
+        "mean_signed_rank_gain": -887.3333333333334
+      },
+      {
+        "sector": "Unknown_Sector",
+        "n_firms": 21,
+        "mean_abs_rank_move": 876.6666666666666,
+        "abs_ci95_low": 579.8150589941163,
+        "abs_ci95_high": 1173.518274339217,
+        "mean_signed_rank_gain": -876.6666666666666
+      },
+      {
+        "sector": "해운사",
+        "n_firms": 8,
+        "mean_abs_rank_move": 868.25,
+        "abs_ci95_low": 256.85399894994407,
+        "abs_ci95_high": 1479.646001050056,
+        "mean_signed_rank_gain": -868.25
+      },
+      {
+        "sector": "전자제품",
+        "n_firms": 4,
+        "mean_abs_rank_move": 861.25,
+        "abs_ci95_low": -110.03444695670896,
+        "abs_ci95_high": 1832.534446956709,
+        "mean_signed_rank_gain": -861.25
+      },
+      {
+        "sector": "디스플레이패널",
+        "n_firms": 2,
+        "mean_abs_rank_move": 853.0,
+        "abs_ci95_low": -711.0799999999999,
+        "abs_ci95_high": 2417.08,
+        "mean_signed_rank_gain": -853.0
+      },
+      {
+        "sector": "건강관리장비와용품",
+        "n_firms": 5,
+        "mean_abs_rank_move": 850.6,
+        "abs_ci95_low": 268.0411122504438,
+        "abs_ci95_high": 1433.1588877495562,
+        "mean_signed_rank_gain": -850.6
+      },
+      {
+        "sector": "전자장비와기기",
+        "n_firms": 20,
+        "mean_abs_rank_move": 832.1,
+        "abs_ci95_low": 421.7297623811293,
+        "abs_ci95_high": 1242.4702376188707,
+        "mean_signed_rank_gain": -799.4
+      },
+      {
+        "sector": "손해보험",
+        "n_firms": 10,
+        "mean_abs_rank_move": 819.9,
+        "abs_ci95_low": -50.21027766880718,
+        "abs_ci95_high": 1690.0102776688072,
+        "mean_signed_rank_gain": -819.9
+      },
+      {
+        "sector": "화학",
+        "n_firms": 72,
+        "mean_abs_rank_move": 799.6388888888889,
+        "abs_ci95_low": 644.124725592778,
+        "abs_ci95_high": 955.1530521849999,
+        "mean_signed_rank_gain": -775.9166666666666
+      },
+      {
+        "sector": "IT서비스",
+        "n_firms": 13,
+        "mean_abs_rank_move": 740.6153846153846,
+        "abs_ci95_low": 372.60064781886956,
+        "abs_ci95_high": 1108.6301214118998,
+        "mean_signed_rank_gain": -737.8461538461538
+      },
+      {
+        "sector": "전기제품",
+        "n_firms": 11,
+        "mean_abs_rank_move": 733.0,
+        "abs_ci95_low": 141.8151910673556,
+        "abs_ci95_high": 1324.1848089326445,
+        "mean_signed_rank_gain": -715.3636363636364
+      },
+      {
+        "sector": "백화점과일반상점",
+        "n_firms": 12,
+        "mean_abs_rank_move": 710.1666666666666,
+        "abs_ci95_low": 226.69623772962638,
+        "abs_ci95_high": 1193.637095603707,
+        "mean_signed_rank_gain": -628.1666666666666
+      },
+      {
+        "sector": "증권",
+        "n_firms": 33,
+        "mean_abs_rank_move": 697.5757575757576,
+        "abs_ci95_low": 369.3340150095481,
+        "abs_ci95_high": 1025.8175001419672,
+        "mean_signed_rank_gain": -675.2727272727273
+      },
+      {
+        "sector": "호텔,레스토랑,레저",
+        "n_firms": 6,
+        "mean_abs_rank_move": 688.1666666666666,
+        "abs_ci95_low": 198.74993959475927,
+        "abs_ci95_high": 1177.583393738574,
+        "mean_signed_rank_gain": -676.8333333333334
+      },
+      {
+        "sector": "도로와철도운송",
+        "n_firms": 5,
+        "mean_abs_rank_move": 668.0,
+        "abs_ci95_low": 299.1979917625177,
+        "abs_ci95_high": 1036.8020082374824,
+        "mean_signed_rank_gain": -516.4
+      },
+      {
+        "sector": "항공사",
+        "n_firms": 8,
+        "mean_abs_rank_move": 648.125,
+        "abs_ci95_low": 109.4131668043666,
+        "abs_ci95_high": 1186.8368331956335,
+        "mean_signed_rank_gain": -606.375
+      },
+      {
+        "sector": "석유와가스",
+        "n_firms": 12,
+        "mean_abs_rank_move": 573.9166666666666,
+        "abs_ci95_low": 240.48323781200332,
+        "abs_ci95_high": 907.3500955213299,
+        "mean_signed_rank_gain": -571.25
+      },
+      {
+        "sector": "가스유틸리티",
+        "n_firms": 11,
+        "mean_abs_rank_move": 560.5454545454545,
+        "abs_ci95_low": 322.02583921541486,
+        "abs_ci95_high": 799.0650698754941,
+        "mean_signed_rank_gain": -560.5454545454545
+      },
+      {
+        "sector": "전기장비",
+        "n_firms": 13,
+        "mean_abs_rank_move": 558.0,
+        "abs_ci95_low": 107.355220702944,
+        "abs_ci95_high": 1008.644779297056,
+        "mean_signed_rank_gain": -404.9230769230769
+      },
+      {
+        "sector": "화장품",
+        "n_firms": 18,
+        "mean_abs_rank_move": 532.8333333333334,
+        "abs_ci95_low": 329.0937323043459,
+        "abs_ci95_high": 736.5729343623209,
+        "mean_signed_rank_gain": -518.3888888888889
+      },
+      {
+        "sector": "자동차",
+        "n_firms": 9,
+        "mean_abs_rank_move": 504.22222222222223,
+        "abs_ci95_low": 3.2104578252198053,
+        "abs_ci95_high": 1005.2339866192247,
+        "mean_signed_rank_gain": -504.22222222222223
+      },
+      {
+        "sector": "광고",
+        "n_firms": 3,
+        "mean_abs_rank_move": 488.0,
+        "abs_ci95_low": -147.31317169828412,
+        "abs_ci95_high": 1123.3131716982841,
+        "mean_signed_rank_gain": -488.0
+      },
+      {
+        "sector": "무역회사와판매업체",
+        "n_firms": 7,
+        "mean_abs_rank_move": 438.85714285714283,
+        "abs_ci95_low": 115.32553327316418,
+        "abs_ci95_high": 762.3887524411215,
+        "mean_signed_rank_gain": -346.2857142857143
+      },
+      {
+        "sector": "가정용기기와용품",
+        "n_firms": 5,
+        "mean_abs_rank_move": 438.2,
+        "abs_ci95_low": -152.48117781422474,
+        "abs_ci95_high": 1028.8811778142247,
+        "mean_signed_rank_gain": -438.2
+      },
+      {
+        "sector": "반도체와반도체장비",
+        "n_firms": 16,
+        "mean_abs_rank_move": 428.4375,
+        "abs_ci95_low": 70.8887397640708,
+        "abs_ci95_high": 785.9862602359292,
+        "mean_signed_rank_gain": -402.3125
+      },
+      {
+        "sector": "우주항공과국방",
+        "n_firms": 7,
+        "mean_abs_rank_move": 426.85714285714283,
+        "abs_ci95_low": -33.708387767978934,
+        "abs_ci95_high": 887.4226734822646,
+        "mean_signed_rank_gain": -175.71428571428572
+      },
+      {
+        "sector": "핸드셋",
+        "n_firms": 3,
+        "mean_abs_rank_move": 417.3333333333333,
+        "abs_ci95_low": 246.64320109234976,
+        "abs_ci95_high": 588.0234655743169,
+        "mean_signed_rank_gain": -417.3333333333333
+      },
+      {
+        "sector": "복합기업",
+        "n_firms": 16,
+        "mean_abs_rank_move": 400.875,
+        "abs_ci95_low": 60.1465610171839,
+        "abs_ci95_high": 741.6034389828161,
+        "mean_signed_rank_gain": -350.625
+      },
+      {
+        "sector": "에너지장비및서비스",
+        "n_firms": 9,
+        "mean_abs_rank_move": 331.44444444444446,
+        "abs_ci95_low": -61.669282994873754,
+        "abs_ci95_high": 724.5581718837627,
+        "mean_signed_rank_gain": -293.6666666666667
+      },
+      {
+        "sector": "전기유틸리티",
+        "n_firms": 4,
+        "mean_abs_rank_move": 289.25,
+        "abs_ci95_low": 95.27373521484645,
+        "abs_ci95_high": 483.22626478515355,
+        "mean_signed_rank_gain": -289.25
+      },
+      {
+        "sector": "게임엔터테인먼트",
+        "n_firms": 4,
+        "mean_abs_rank_move": 230.75,
+        "abs_ci95_low": -80.15091342205261,
+        "abs_ci95_high": 541.6509134220526,
+        "mean_signed_rank_gain": -230.75
+      },
+      {
+        "sector": "조선",
+        "n_firms": 11,
+        "mean_abs_rank_move": 187.36363636363637,
+        "abs_ci95_low": -71.45654083593945,
+        "abs_ci95_high": 446.1838135632122,
+        "mean_signed_rank_gain": -135.36363636363637
+      },
+      {
+        "sector": "생명보험",
+        "n_firms": 3,
+        "mean_abs_rank_move": 186.0,
+        "abs_ci95_low": -124.6790635580926,
+        "abs_ci95_high": 496.6790635580926,
+        "mean_signed_rank_gain": -148.66666666666666
+      },
+      {
+        "sector": "양방향미디어와서비스",
+        "n_firms": 3,
+        "mean_abs_rank_move": 175.66666666666666,
+        "abs_ci95_low": -124.87305790305552,
+        "abs_ci95_high": 476.20639123638887,
+        "mean_signed_rank_gain": -175.66666666666666
+      },
+      {
+        "sector": "은행",
+        "n_firms": 10,
+        "mean_abs_rank_move": 76.0,
+        "abs_ci95_low": -5.717871947056707,
+        "abs_ci95_high": 157.71787194705672,
+        "mean_signed_rank_gain": -52.2
+      }
+    ]
+  },
+  "q2_sector_return_gap": {
+    "early_half_daily_std_ci95": {
+      "mean": 0.01040153566216268,
+      "ci95_low": 0.009877630670699413,
+      "ci95_high": 0.010925440653625948,
+      "n": 295
+    },
+    "late_half_daily_std_ci95": {
+      "mean": 0.01279750825466145,
+      "ci95_low": 0.01218462838398894,
+      "ci95_high": 0.01341038812533396,
+      "n": 295
+    },
+    "dispersion_change_late_minus_early": 0.0023959725924987702,
+    "sector_cumulative_returns_pct": [
+      {
+        "sector": "전기장비",
+        "cum_return_pct": 185.12923567514554
+      },
+      {
+        "sector": "생명보험",
+        "cum_return_pct": 117.90946079299016
+      },
+      {
+        "sector": "복합기업",
+        "cum_return_pct": 114.93832898222908
+      },
+      {
+        "sector": "증권",
+        "cum_return_pct": 85.70786151206097
+      },
+      {
+        "sector": "도로와철도운송",
+        "cum_return_pct": 77.6520975446894
+      },
+      {
+        "sector": "은행",
+        "cum_return_pct": 70.81922690857623
+      },
+      {
+        "sector": "다각화된통신서비스",
+        "cum_return_pct": 69.58588467278429
+      },
+      {
+        "sector": "손해보험",
+        "cum_return_pct": 65.59217907568488
+      },
+      {
+        "sector": "조선",
+        "cum_return_pct": 63.957288437682806
+      },
+      {
+        "sector": "운송인프라",
+        "cum_return_pct": 54.01155169497276
+      },
+      {
+        "sector": "백화점과일반상점",
+        "cum_return_pct": 37.80757248516373
+      },
+      {
+        "sector": "Unknown_Sector",
+        "cum_return_pct": 31.74343284349859
+      },
+      {
+        "sector": "통신장비",
+        "cum_return_pct": 30.338709009417375
+      },
+      {
+        "sector": "건설",
+        "cum_return_pct": 30.26953704825941
+      },
+      {
+        "sector": "전기유틸리티",
+        "cum_return_pct": 29.19241016201073
+      },
+      {
+        "sector": "반도체와반도체장비",
+        "cum_return_pct": 27.707658370015785
+      },
+      {
+        "sector": "석유와가스",
+        "cum_return_pct": 17.784764130633036
+      },
+      {
+        "sector": "가스유틸리티",
+        "cum_return_pct": 16.375513527028062
+      },
+      {
+        "sector": "기계",
+        "cum_return_pct": 15.509275800803724
+      },
+      {
+        "sector": "디스플레이패널",
+        "cum_return_pct": 14.586858194026187
+      },
+      {
+        "sector": "해운사",
+        "cum_return_pct": 10.136832792532392
+      },
+      {
+        "sector": "화장품",
+        "cum_return_pct": 9.047397449653861
+      },
+      {
+        "sector": "에너지장비및서비스",
+        "cum_return_pct": 7.952061516888698
+      },
+      {
+        "sector": "창업투자",
+        "cum_return_pct": 6.654618487883379
+      },
+      {
+        "sector": "우주항공과국방",
+        "cum_return_pct": 6.332377853022253
+      },
+      {
+        "sector": "무역회사와판매업체",
+        "cum_return_pct": 6.140448559354117
+      },
+      {
+        "sector": "컴퓨터와주변기기",
+        "cum_return_pct": 4.706841342060297
+      },
+      {
+        "sector": "인터넷과카탈로그소매",
+        "cum_return_pct": 3.5136517114788157
+      },
+      {
+        "sector": "기타금융",
+        "cum_return_pct": 1.7932818158346686
+      },
+      {
+        "sector": "건축자재",
+        "cum_return_pct": 1.6286352990454667
+      },
+      {
+        "sector": "생물공학",
+        "cum_return_pct": 0.16480863755947706
+      },
+      {
+        "sector": "전자장비와기기",
+        "cum_return_pct": -0.6290601033520304
+      },
+      {
+        "sector": "식품",
+        "cum_return_pct": -1.1600129118468305
+      },
+      {
+        "sector": "레저용장비와제품",
+        "cum_return_pct": -2.891877161703782
+      },
+      {
+        "sector": "철강",
+        "cum_return_pct": -3.725977516740986
+      },
+      {
+        "sector": "화학",
+        "cum_return_pct": -7.200092352868836
+      },
+      {
+        "sector": "자동차부품",
+        "cum_return_pct": -7.505815119213999
+      },
+      {
+        "sector": "자동차",
+        "cum_return_pct": -8.04389151997299
+      },
+      {
+        "sector": "건축제품",
+        "cum_return_pct": -10.001286660859277
+      },
+      {
+        "sector": "항공화물운송과물류",
+        "cum_return_pct": -10.102427231886091
+      },
+      {
+        "sector": "비철금속",
+        "cum_return_pct": -11.841273191855473
+      },
+      {
+        "sector": "상업서비스와공급품",
+        "cum_return_pct": -11.896120557951484
+      },
+      {
+        "sector": "포장재",
+        "cum_return_pct": -12.759329406203657
+      },
+      {
+        "sector": "건강관리기술",
+        "cum_return_pct": -12.964877288065624
+      },
+      {
+        "sector": "식품과기본식료품소매",
+        "cum_return_pct": -14.03763521366599
+      },
+      {
+        "sector": "IT서비스",
+        "cum_return_pct": -15.856373955862345
+      },
+      {
+        "sector": "건강관리업체및서비스",
+        "cum_return_pct": -17.23860904850911
+      },
+      {
+        "sector": "부동산",
+        "cum_return_pct": -17.643190335147608
+      },
+      {
+        "sector": "가구",
+        "cum_return_pct": -18.343432231114278
+      },
+      {
+        "sector": "교육서비스",
+        "cum_return_pct": -19.00004188535085
+      },
+      {
+        "sector": "항공사",
+        "cum_return_pct": -19.827509062920058
+      },
+      {
+        "sector": "무선통신서비스",
+        "cum_return_pct": -20.273979752656867
+      },
+      {
+        "sector": "디스플레이장비및부품",
+        "cum_return_pct": -21.878726253127233
+      },
+      {
+        "sector": "섬유,의류,신발,호화품",
+        "cum_return_pct": -22.388649856173082
+      },
+      {
+        "sector": "생명과학도구및서비스",
+        "cum_return_pct": -23.125346739267204
+      },
+      {
+        "sector": "제약",
+        "cum_return_pct": -23.891761593719252
+      },
+      {
+        "sector": "건강관리장비와용품",
+        "cum_return_pct": -25.06444870466452
+      },
+      {
+        "sector": "가정용품",
+        "cum_return_pct": -27.472644025111148
+      },
+      {
+        "sector": "전기제품",
+        "cum_return_pct": -27.47863947359437
+      },
+      {
+        "sector": "호텔,레스토랑,레저",
+        "cum_return_pct": -27.722412373796168
+      },
+      {
+        "sector": "음료",
+        "cum_return_pct": -28.15867630697818
+      },
+      {
+        "sector": "게임엔터테인먼트",
+        "cum_return_pct": -28.462496091500277
+      },
+      {
+        "sector": "전자제품",
+        "cum_return_pct": -29.75844961468542
+      },
+      {
+        "sector": "판매업체",
+        "cum_return_pct": -29.916169947404004
+      },
+      {
+        "sector": "양방향미디어와서비스",
+        "cum_return_pct": -32.00940570408577
+      },
+      {
+        "sector": "소프트웨어",
+        "cum_return_pct": -35.39483298855269
+      },
+      {
+        "sector": "출판",
+        "cum_return_pct": -36.392306920920824
+      },
+      {
+        "sector": "종이와목재",
+        "cum_return_pct": -36.88066051914257
+      },
+      {
+        "sector": "핸드셋",
+        "cum_return_pct": -37.13762896127447
+      },
+      {
+        "sector": "전문소매",
+        "cum_return_pct": -37.47427121838697
+      },
+      {
+        "sector": "가정용기기와용품",
+        "cum_return_pct": -40.38277218206671
+      },
+      {
+        "sector": "광고",
+        "cum_return_pct": -47.2066303447404
+      },
+      {
+        "sector": "방송과엔터테인먼트",
+        "cum_return_pct": -51.05439370795439
+      }
+    ],
+    "dispersion_key_sectors_leave_one_out": [
+      {
+        "sector": "전기장비",
+        "var_drop_when_excluded": 9.866846640684348e-06,
+        "share_of_dispersion_pct": 2.9055338708747858
+      },
+      {
+        "sector": "반도체와반도체장비",
+        "var_drop_when_excluded": 7.003235863637758e-06,
+        "share_of_dispersion_pct": 2.062273768766434
+      },
+      {
+        "sector": "전기유틸리티",
+        "var_drop_when_excluded": 6.949539750879317e-06,
+        "share_of_dispersion_pct": 2.0464616374913156
+      },
+      {
+        "sector": "우주항공과국방",
+        "var_drop_when_excluded": 5.966023112884155e-06,
+        "share_of_dispersion_pct": 1.756841153021554
+      },
+      {
+        "sector": "에너지장비및서비스",
+        "var_drop_when_excluded": 4.883906119348405e-06,
+        "share_of_dispersion_pct": 1.4381853867503918
+      },
+      {
+        "sector": "조선",
+        "var_drop_when_excluded": 4.4046051220346274e-06,
+        "share_of_dispersion_pct": 1.2970435070036266
+      },
+      {
+        "sector": "생명보험",
+        "var_drop_when_excluded": 3.2119882334491e-06,
+        "share_of_dispersion_pct": 0.9458483490212977
+      },
+      {
+        "sector": "건강관리기술",
+        "var_drop_when_excluded": 3.209053746257339e-06,
+        "share_of_dispersion_pct": 0.9449842176285836
+      },
+      {
+        "sector": "통신장비",
+        "var_drop_when_excluded": 3.0413394707061708e-06,
+        "share_of_dispersion_pct": 0.8955966548145591
+      },
+      {
+        "sector": "전기제품",
+        "var_drop_when_excluded": 2.798367262807496e-06,
+        "share_of_dispersion_pct": 0.8240475565626515
+      },
+      {
+        "sector": "증권",
+        "var_drop_when_excluded": 2.070565714410225e-06,
+        "share_of_dispersion_pct": 0.6097286229507759
+      },
+      {
+        "sector": "다각화된통신서비스",
+        "var_drop_when_excluded": 1.5869612920155337e-06,
+        "share_of_dispersion_pct": 0.46731949463020495
+      },
+      {
+        "sector": "출판",
+        "var_drop_when_excluded": 1.4601428767979066e-06,
+        "share_of_dispersion_pct": 0.42997471627456185
+      },
+      {
+        "sector": "복합기업",
+        "var_drop_when_excluded": 1.1434665889041226e-06,
+        "share_of_dispersion_pct": 0.33672165234384827
+      },
+      {
+        "sector": "생물공학",
+        "var_drop_when_excluded": 1.1149271870151294e-06,
+        "share_of_dispersion_pct": 0.3283175287304274
+      },
+      {
+        "sector": "건강관리업체및서비스",
+        "var_drop_when_excluded": 1.0761298983328412e-06,
+        "share_of_dispersion_pct": 0.31689271992680373
+      },
+      {
+        "sector": "기계",
+        "var_drop_when_excluded": 9.50871845813747e-07,
+        "share_of_dispersion_pct": 0.28000742846059334
+      },
+      {
+        "sector": "양방향미디어와서비스",
+        "var_drop_when_excluded": 8.508662047715864e-07,
+        "share_of_dispersion_pct": 0.2505583260362762
+      },
+      {
+        "sector": "자동차",
+        "var_drop_when_excluded": 7.961958781050878e-07,
+        "share_of_dispersion_pct": 0.23445931369262396
+      },
+      {
+        "sector": "도로와철도운송",
+        "var_drop_when_excluded": 6.452355714295691e-07,
+        "share_of_dispersion_pct": 0.1900053660256171
+      },
+      {
+        "sector": "무역회사와판매업체",
+        "var_drop_when_excluded": 5.479075558406394e-07,
+        "share_of_dispersion_pct": 0.161344755784385
+      },
+      {
+        "sector": "전자장비와기기",
+        "var_drop_when_excluded": 5.263883482571315e-07,
+        "share_of_dispersion_pct": 0.15500789976693594
+      },
+      {
+        "sector": "부동산",
+        "var_drop_when_excluded": 3.182799886569535e-07,
+        "share_of_dispersion_pct": 0.09372531277128272
+      },
+      {
+        "sector": "인터넷과카탈로그소매",
+        "var_drop_when_excluded": 1.8488001586039124e-07,
+        "share_of_dispersion_pct": 0.054442434112158926
+      },
+      {
+        "sector": "생명과학도구및서비스",
+        "var_drop_when_excluded": 1.3867556213206442e-07,
+        "share_of_dispersion_pct": 0.040836404730961506
+      },
+      {
+        "sector": "손해보험",
+        "var_drop_when_excluded": 6.202238714400534e-08,
+        "share_of_dispersion_pct": 0.018264006035763967
+      },
+      {
+        "sector": "항공사",
+        "var_drop_when_excluded": 2.818522332220146e-08,
+        "share_of_dispersion_pct": 0.008299827087932352
+      },
+      {
+        "sector": "핸드셋",
+        "var_drop_when_excluded": -7.964490532851812e-09,
+        "share_of_dispersion_pct": -0.002345338673051219
+      },
+      {
+        "sector": "해운사",
+        "var_drop_when_excluded": -9.810001682909958e-08,
+        "share_of_dispersion_pct": -0.028887944853125427
+      },
+      {
+        "sector": "IT서비스",
+        "var_drop_when_excluded": -1.722781948363056e-07,
+        "share_of_dispersion_pct": -0.05073152026566144
+      },
+      {
+        "sector": "화장품",
+        "var_drop_when_excluded": -1.7395742457333805e-07,
+        "share_of_dispersion_pct": -0.051226010456459574
+      },
+      {
+        "sector": "무선통신서비스",
+        "var_drop_when_excluded": -1.787171635846325e-07,
+        "share_of_dispersion_pct": -0.052627631806974544
+      },
+      {
+        "sector": "디스플레이장비및부품",
+        "var_drop_when_excluded": -1.8568809055511445e-07,
+        "share_of_dispersion_pct": -0.054680391433400144
+      },
+      {
+        "sector": "소프트웨어",
+        "var_drop_when_excluded": -2.764149801475304e-07,
+        "share_of_dispersion_pct": -0.08139713897287523
+      },
+      {
+        "sector": "기타금융",
+        "var_drop_when_excluded": -2.8542762908040885e-07,
+        "share_of_dispersion_pct": -0.08405113347531391
+      },
+      {
+        "sector": "은행",
+        "var_drop_when_excluded": -5.478846597996192e-07,
+        "share_of_dispersion_pct": -0.16133801348614973
+      },
+      {
+        "sector": "판매업체",
+        "var_drop_when_excluded": -6.214228364963053e-07,
+        "share_of_dispersion_pct": -0.18299312488856803
+      },
+      {
+        "sector": "식품과기본식료품소매",
+        "var_drop_when_excluded": -6.967117611918769e-07,
+        "share_of_dispersion_pct": -0.20516378677994934
+      },
+      {
+        "sector": "건설",
+        "var_drop_when_excluded": -7.027349736671534e-07,
+        "share_of_dispersion_pct": -0.2069374687368808
+      },
+      {
+        "sector": "백화점과일반상점",
+        "var_drop_when_excluded": -7.967302312810527e-07,
+        "share_of_dispersion_pct": -0.23461666703035333
+      },
+      {
+        "sector": "전문소매",
+        "var_drop_when_excluded": -8.316841041435246e-07,
+        "share_of_dispersion_pct": -0.24490968821722353
+      },
+      {
+        "sector": "가구",
+        "var_drop_when_excluded": -8.345561026556906e-07,
+        "share_of_dispersion_pct": -0.24575541829270606
+      },
+      {
+        "sector": "건강관리장비와용품",
+        "var_drop_when_excluded": -9.208723505787207e-07,
+        "share_of_dispersion_pct": -0.2711733447164408
+      },
+      {
+        "sector": "가정용기기와용품",
+        "var_drop_when_excluded": -9.322469712720301e-07,
+        "share_of_dispersion_pct": -0.2745228794661237
+      },
+      {
+        "sector": "광고",
+        "var_drop_when_excluded": -9.679610300322933e-07,
+        "share_of_dispersion_pct": -0.28503975594887804
+      },
+      {
+        "sector": "게임엔터테인먼트",
+        "var_drop_when_excluded": -1.0158684862961067e-06,
+        "share_of_dispersion_pct": -0.2991472760017394
+      },
+      {
+        "sector": "제약",
+        "var_drop_when_excluded": -1.0632517635615363e-06,
+        "share_of_dispersion_pct": -0.3131004387518405
+      },
+      {
+        "sector": "가정용품",
+        "var_drop_when_excluded": -1.1599265931715825e-06,
+        "share_of_dispersion_pct": -0.3415687024354803
+      },
+      {
+        "sector": "레저용장비와제품",
+        "var_drop_when_excluded": -1.1631435976693885e-06,
+        "share_of_dispersion_pct": -0.3425160279460026
+      },
+      {
+        "sector": "방송과엔터테인먼트",
+        "var_drop_when_excluded": -1.2349048303652243e-06,
+        "share_of_dispersion_pct": -0.36364787480716115
+      },
+      {
+        "sector": "석유와가스",
+        "var_drop_when_excluded": -1.3791617252075818e-06,
+        "share_of_dispersion_pct": -0.40612783921072476
+      },
+      {
+        "sector": "운송인프라",
+        "var_drop_when_excluded": -1.387012321252734e-06,
+        "share_of_dispersion_pct": -0.4084396388713875
+      },
+      {
+        "sector": "호텔,레스토랑,레저",
+        "var_drop_when_excluded": -1.423491977241352e-06,
+        "share_of_dispersion_pct": -0.4191819641484162
+      },
+      {
+        "sector": "디스플레이패널",
+        "var_drop_when_excluded": -1.468146381732277e-06,
+        "share_of_dispersion_pct": -0.4323315436905916
+      },
+      {
+        "sector": "건축자재",
+        "var_drop_when_excluded": -1.5443695515247142e-06,
+        "share_of_dispersion_pct": -0.4547773168583001
+      },
+      {
+        "sector": "자동차부품",
+        "var_drop_when_excluded": -1.561293950416709e-06,
+        "share_of_dispersion_pct": -0.4597611192843075
+      },
+      {
+        "sector": "전자제품",
+        "var_drop_when_excluded": -1.6483002934327882e-06,
+        "share_of_dispersion_pct": -0.4853822610553561
+      },
+      {
+        "sector": "비철금속",
+        "var_drop_when_excluded": -1.6533464751328241e-06,
+        "share_of_dispersion_pct": -0.486868232448444
+      },
+      {
+        "sector": "화학",
+        "var_drop_when_excluded": -1.7201694452408014e-06,
+        "share_of_dispersion_pct": -0.5065458873337049
+      },
+      {
+        "sector": "건축제품",
+        "var_drop_when_excluded": -1.744968381696963e-06,
+        "share_of_dispersion_pct": -0.5138485395851289
+      },
+      {
+        "sector": "항공화물운송과물류",
+        "var_drop_when_excluded": -1.8019867097884249e-06,
+        "share_of_dispersion_pct": -0.5306389782696915
+      },
+      {
+        "sector": "컴퓨터와주변기기",
+        "var_drop_when_excluded": -1.8187948689130963e-06,
+        "share_of_dispersion_pct": -0.5355885510584704
+      },
+      {
+        "sector": "철강",
+        "var_drop_when_excluded": -1.8501404932934492e-06,
+        "share_of_dispersion_pct": -0.5448190353922694
+      },
+      {
+        "sector": "교육서비스",
+        "var_drop_when_excluded": -2.148577389463654e-06,
+        "share_of_dispersion_pct": -0.6327010651550357
+      },
+      {
+        "sector": "가스유틸리티",
+        "var_drop_when_excluded": -2.255900679178644e-06,
+        "share_of_dispersion_pct": -0.6643050278754882
+      },
+      {
+        "sector": "종이와목재",
+        "var_drop_when_excluded": -2.3652074383690488e-06,
+        "share_of_dispersion_pct": -0.6964930716050548
+      },
+      {
+        "sector": "섬유,의류,신발,호화품",
+        "var_drop_when_excluded": -2.438494481514714e-06,
+        "share_of_dispersion_pct": -0.7180742306024975
+      },
+      {
+        "sector": "포장재",
+        "var_drop_when_excluded": -2.6634054887201544e-06,
+        "share_of_dispersion_pct": -0.7843047673854878
+      },
+      {
+        "sector": "식품",
+        "var_drop_when_excluded": -2.701566346643763e-06,
+        "share_of_dispersion_pct": -0.7955421636151504
+      },
+      {
+        "sector": "상업서비스와공급품",
+        "var_drop_when_excluded": -3.1672215203018225e-06,
+        "share_of_dispersion_pct": -0.9326656974534884
+      },
+      {
+        "sector": "음료",
+        "var_drop_when_excluded": -3.2071464145687e-06,
+        "share_of_dispersion_pct": -0.9444225572495236
+      },
+      {
+        "sector": "Unknown_Sector",
+        "var_drop_when_excluded": -3.7925732054209745e-06,
+        "share_of_dispersion_pct": -1.1168157677333177
+      },
+      {
+        "sector": "창업투자",
+        "var_drop_when_excluded": -4.239847259787947e-06,
+        "share_of_dispersion_pct": -1.2485265322614867
+      }
+    ]
+  },
+  "q3_cross_sector_correlation": {
+    "overall_pairwise_corr_ci95": {
+      "mean": 0.566905520205995,
+      "ci95_low": 0.5614676287696962,
+      "ci95_high": 0.5723434116422939,
+      "n": 2628
+    },
+    "sharp_market_move_days_corr_ci95": {
+      "mean": 0.8275064011832196,
+      "ci95_low": 0.8236140378155553,
+      "ci95_high": 0.8313987645508839,
+      "n": 2628
+    },
+    "ordinary_days_corr_ci95": {
+      "mean": 0.3266040082827274,
+      "ci95_low": 0.32131623647855945,
+      "ci95_high": 0.33189178008689535,
+      "n": 2628
+    },
+    "sharp_move_abs_mkt_ret_threshold": 0.01933902843182445,
+    "top30_correlated_sector_pairs": [
+      {
+        "sector_a": "IT서비스",
+        "sector_b": "소프트웨어",
+        "correlation": 0.9314966767518612
+      },
+      {
+        "sector_a": "전기제품",
+        "sector_b": "전자장비와기기",
+        "correlation": 0.9258003110112177
+      },
+      {
+        "sector_a": "생물공학",
+        "sector_b": "제약",
+        "correlation": 0.9250059603645698
+      },
+      {
+        "sector_a": "건강관리장비와용품",
+        "sector_b": "제약",
+        "correlation": 0.9244131958677602
+      },
+      {
+        "sector_a": "디스플레이장비및부품",
+        "sector_b": "전자장비와기기",
+        "correlation": 0.9239817465332538
+      },
+      {
+        "sector_a": "전자장비와기기",
+        "sector_b": "핸드셋",
+        "correlation": 0.9227776341126588
+      },
+      {
+        "sector_a": "전기제품",
+        "sector_b": "화학",
+        "correlation": 0.9188679779065997
+      },
+      {
+        "sector_a": "반도체와반도체장비",
+        "sector_b": "전자장비와기기",
+        "correlation": 0.9097318021496655
+      },
+      {
+        "sector_a": "전자장비와기기",
+        "sector_b": "화학",
+        "correlation": 0.9077653431045049
+      },
+      {
+        "sector_a": "디스플레이장비및부품",
+        "sector_b": "핸드셋",
+        "correlation": 0.9051703731076113
+      },
+      {
+        "sector_a": "생명과학도구및서비스",
+        "sector_b": "제약",
+        "correlation": 0.9007376225714607
+      },
+      {
+        "sector_a": "건강관리장비와용품",
+        "sector_b": "생물공학",
+        "correlation": 0.8910918217066842
+      },
+      {
+        "sector_a": "건강관리장비와용품",
+        "sector_b": "생명과학도구및서비스",
+        "correlation": 0.8891436397656128
+      },
+      {
+        "sector_a": "디스플레이장비및부품",
+        "sector_b": "반도체와반도체장비",
+        "correlation": 0.8859136901069201
+      },
+      {
+        "sector_a": "자동차부품",
+        "sector_b": "화학",
+        "correlation": 0.8848798988780624
+      },
+      {
+        "sector_a": "자동차부품",
+        "sector_b": "전자장비와기기",
+        "correlation": 0.8814705464436826
+      },
+      {
+        "sector_a": "기계",
+        "sector_b": "자동차부품",
+        "correlation": 0.8788491216416529
+      },
+      {
+        "sector_a": "기계",
+        "sector_b": "전자장비와기기",
+        "correlation": 0.8785891304273257
+      },
+      {
+        "sector_a": "디스플레이장비및부품",
+        "sector_b": "화학",
+        "correlation": 0.8783717897637273
+      },
+      {
+        "sector_a": "핸드셋",
+        "sector_b": "화학",
+        "correlation": 0.8746042482778008
+      },
+      {
+        "sector_a": "생명과학도구및서비스",
+        "sector_b": "생물공학",
+        "correlation": 0.8744716997560656
+      },
+      {
+        "sector_a": "전기제품",
+        "sector_b": "핸드셋",
+        "correlation": 0.8741080368794181
+      },
+      {
+        "sector_a": "자동차부품",
+        "sector_b": "핸드셋",
+        "correlation": 0.8719958573215385
+      },
+      {
+        "sector_a": "기계",
+        "sector_b": "핸드셋",
+        "correlation": 0.8715707510129032
+      },
+      {
+        "sector_a": "디스플레이장비및부품",
+        "sector_b": "자동차부품",
+        "correlation": 0.8698934552683608
+      },
+      {
+        "sector_a": "디스플레이장비및부품",
+        "sector_b": "전기제품",
+        "correlation": 0.8657293903102333
+      },
+      {
+        "sector_a": "IT서비스",
+        "sector_b": "전자장비와기기",
+        "correlation": 0.8564659588066522
+      },
+      {
+        "sector_a": "반도체와반도체장비",
+        "sector_b": "핸드셋",
+        "correlation": 0.8562717542080449
+      },
+      {
+        "sector_a": "IT서비스",
+        "sector_b": "자동차부품",
+        "correlation": 0.8549170256383578
+      },
+      {
+        "sector_a": "IT서비스",
+        "sector_b": "핸드셋",
+        "correlation": 0.8548403614169393
+      }
+    ]
+  },
+  "q4_volume_lead_or_follow": {
+    "definitions": {
+      "base_med20_ge_2.0x": {
+        "post_5d_pct": {
+          "mean": NaN,
+          "ci95_low": NaN,
+          "ci95_high": NaN,
+          "n": 0
+        },
+        "post_10d_pct": {
+          "mean": NaN,
+          "ci95_low": NaN,
+          "ci95_high": NaN,
+          "n": 0
+        },
+        "post_20d_pct": {
+          "mean": NaN,
+          "ci95_low": NaN,
+          "ci95_high": NaN,
+          "n": 0
+        },
+        "pre_5d_pct": {
+          "mean": NaN,
+          "ci95_low": NaN,
+          "ci95_high": NaN,
+          "n": 0
+        },
+        "pre_10d_pct": {
+          "mean": NaN,
+          "ci95_low": NaN,
+          "ci95_high": NaN,
+          "n": 0
+        },
+        "pre_20d_pct": {
+          "mean": NaN,
+          "ci95_low": NaN,
+          "ci95_high": NaN,
+          "n": 0
+        }
+      },
+      "alt_med20_ge_1.5x": {
+        "post_5d_pct": {
+          "mean": NaN,
+          "ci95_low": NaN,
+          "ci95_high": NaN,
+          "n": 0
+        },
+        "post_10d_pct": {
+          "mean": NaN,
+          "ci95_low": NaN,
+          "ci95_high": NaN,
+          "n": 0
+        },
+        "post_20d_pct": {
+          "mean": NaN,
+          "ci95_low": NaN,
+          "ci95_high": NaN,
+          "n": 0
+        },
+        "pre_5d_pct": {
+          "mean": NaN,
+          "ci95_low": NaN,
+          "ci95_high": NaN,
+          "n": 0
+        },
+        "pre_10d_pct": {
+          "mean": NaN,
+          "ci95_low": NaN,
+          "ci95_high": NaN,
+          "n": 0
+        },
+        "pre_20d_pct": {
+          "mean": NaN,
+          "ci95_low": NaN,
+          "ci95_high": NaN,
+          "n": 0
+        }
+      },
+      "alt_med20_ge_3.0x": {
+        "post_5d_pct": {
+          "mean": NaN,
+          "ci95_low": NaN,
+          "ci95_high": NaN,
+          "n": 0
+        },
+        "post_10d_pct": {
+          "mean": NaN,
+          "ci95_low": NaN,
+          "ci95_high": NaN,
+          "n": 0
+        },
+        "post_20d_pct": {
+          "mean": NaN,
+          "ci95_low": NaN,
+          "ci95_high": NaN,
+          "n": 0
+        },
+        "pre_5d_pct": {
+          "mean": NaN,
+          "ci95_low": NaN,
+          "ci95_high": NaN,
+          "n": 0
+        },
+        "pre_10d_pct": {
+          "mean": NaN,
+          "ci95_low": NaN,
+          "ci95_high": NaN,
+          "n": 0
+        },
+        "pre_20d_pct": {
+          "mean": NaN,
+          "ci95_low": NaN,
+          "ci95_high": NaN,
+          "n": 0
+        }
+      },
+      "alt_mean20_ge_2.0x": {
+        "post_5d_pct": {
+          "mean": NaN,
+          "ci95_low": NaN,
+          "ci95_high": NaN,
+          "n": 0
+        },
+        "post_10d_pct": {
+          "mean": NaN,
+          "ci95_low": NaN,
+          "ci95_high": NaN,
+          "n": 0
+        },
+        "post_20d_pct": {
+          "mean": NaN,
+          "ci95_low": NaN,
+          "ci95_high": NaN,
+          "n": 0
+        },
+        "pre_5d_pct": {
+          "mean": NaN,
+          "ci95_low": NaN,
+          "ci95_high": NaN,
+          "n": 0
+        },
+        "pre_10d_pct": {
+          "mean": NaN,
+          "ci95_low": NaN,
+          "ci95_high": NaN,
+          "n": 0
+        },
+        "pre_20d_pct": {
+          "mean": NaN,
+          "ci95_low": NaN,
+          "ci95_high": NaN,
+          "n": 0
+        }
+      }
+    },
+    "top30_volume_spikes_base_med20_2x": []
+  }
+}

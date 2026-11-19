@@ -1,0 +1,5 @@
+issue_type,affected_rows,share_pct
+missing_or_nonpos_close,294,0.012234329862501113
+missing_or_nonpos_mktcap,36,0.0014980812076531974
+unknown_or_missing_sector,822750,34.23739759990745
+missing_or_neg_volume,2403074,100.0
