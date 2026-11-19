@@ -1,37 +1,117 @@
 import glob
 import os
 import re
+import csv
 from bs4 import BeautifulSoup
 
-folders = sorted(glob.glob('/mnt/data/stock/20*'))
-sample_file = sorted(glob.glob(folders[0] + '/*.html'))[0]
+# Saqlash papkalari
+os.makedirs('data/daily', exist_ok=True)
+os.makedirs('logs', exist_ok=True)
 
-with open(sample_file, 'rb') as f:
-    raw = f.read()
+# 591 ta kundan dastlabki 30 tasini olamiz (keyin [:30] ni olib tashlab hammasini yurgizamiz)
+folders = sorted(glob.glob('/mnt/data/stock/20*'))[:30]
 
-txt = raw.decode('utf-8', errors='replace')
-soup = BeautifulSoup(txt, 'html.parser')
+defect_file = 'logs/defect_log_30days.csv'
+with open(defect_file, 'w', newline='', encoding='utf-8') as df_out:
+    defect_writer = csv.writer(df_out)
+    defect_writer.writerow(['date', 'file', 'code', 'defect_type', 'detail'])
 
-code = os.path.basename(sample_file).replace('.html', '')
-name_tag = soup.select_one('.wrap_company h2 a')
-name = name_tag.get_text(strip=True) if name_tag else None
+    total_files = 0
+    total_ok = 0
 
-# Sektor nomi (업종)
-sector = None
-for a in soup.select('a[href*="sise_group_detail"]'):
-    sector = a.get_text(strip=True)
-    break
+    for folder in folders:
+        date_str = os.path.basename(folder)
+        out_csv = f'data/daily/{date_str}.csv'
+        html_files = sorted(glob.glob(folder + '/*.html'))
+        total_files += len(html_files)
 
-# Asosiy ko'rsatkichlar (시가총액, PER, PBR va h.k.)
-info = {}
-for tr in soup.select('table tr'):
-    ths = [th.get_text(" ", strip=True) for th in tr.find_all('th')]
-    tds = [td.get_text(" ", strip=True) for td in tr.find_all('td')]
-    if len(ths) == 1 and len(tds) == 1:
-        info[ths[0]] = tds[0]
+        rows_out = []
+        for fpath in html_files:
+            fname = os.path.basename(fpath)
+            m_code = re.search(r'_(\d{6})\.html$', fname)
+            code = m_code.group(1) if m_code else fname.replace('.html', '')
 
-print("Fayl:", sample_file)
-print("Kod:", code, "| Nomi:", name, "| Sektor:", sector)
-print("\nTopilgan ko'rsatkichlar:")
-for k, v in list(info.items())[:20]:
-    print(f"  {k}: {v}")
+            try:
+                with open(fpath, 'rb') as f:
+                    raw = f.read()
+                if len(raw) < 500:
+                    defect_writer.writerow([date_str, fname, code, 'EMPTY_OR_TINY_FILE', f'size={len(raw)}'])
+                    continue
+
+                # Kodirovkani aniqlash
+                txt = None
+                for enc in ['cp949', 'euc-kr', 'utf-8']:
+                    try:
+                        txt = raw.decode(enc)
+                        break
+                    except UnicodeDecodeError:
+                        continue
+                if txt is None:
+                    txt = raw.decode('cp949', errors='replace')
+                    defect_writer.writerow([date_str, fname, code, 'ENCODING_REPLACE', 'cp949 fallback'])
+
+                soup = BeautifulSoup(txt, 'html.parser')
+
+                # Kompaniya nomi
+                name_tag = soup.select_one('.wrap_company h2 a')
+                name = name_tag.get_text(strip=True) if name_tag else ''
+
+                # Sektor nomi
+                sec_tag = soup.select_one('a[href*="sise_group_detail"]')
+                sector = sec_tag.get_text(strip=True) if sec_tag else ''
+
+                # Joriy / yopilish narxi (no_today)
+                close_tag = soup.select_one('.no_today .blind')
+                close_val = re.sub(r'[^\d.]', '', close_tag.get_text()) if close_tag else ''
+
+                # Savdo hajmi (거래량 - no_info jadvalidagi 2-ustun ko'pincha)
+                vol_val = ''
+                for td in soup.select('table.no_info td'):
+                    t = td.get_text(" ", strip=True)
+                    if '거래량' in t:
+                        b = td.select_one('.blind')
+                        if b:
+                            vol_val = re.sub(r'[^\d]', '', b.get_text())
+                            break
+
+                # Bozor kapitallashuvi, PER, PBR
+                mktcap_val, per_val, pbr_val = '', '', ''
+                for tr in soup.select('table tr'):
+                    th = tr.find('th')
+                    td = tr.find('td')
+                    if not th or not td:
+                        continue
+                    k = th.get_text(" ", strip=True)
+                    v = td.get_text(" ", strip=True)
+                    if '시가총액' in k and not mktcap_val:
+                        mktcap_val = re.sub(r'[^\d]', '', v)
+                    elif 'PER' in k and '추정' not in k and not per_val:
+                        m = re.search(r'[-+]?\d[\d,]*\.?\d*', v)
+                        per_val = m.group(0).replace(',', '') if m else ''
+                    elif 'PBR' in k and not pbr_val:
+                        m = re.search(r'[-+]?\d[\d,]*\.?\d*', v)
+                        pbr_val = m.group(0).replace(',', '') if m else ''
+
+                # Nuqsonlarni tekshirish
+                if not close_val:
+                    defect_writer.writerow([date_str, fname, code, 'MISSING_CLOSE', name])
+                if not sector:
+                    defect_writer.writerow([date_str, fname, code, 'MISSING_SECTOR', name])
+
+                rows_out.append([date_str, code, name, sector, close_val, mktcap_val, vol_val, per_val, pbr_val])
+                total_ok += 1
+
+            except Exception as e:
+                defect_writer.writerow([date_str, fname, code, 'PARSE_EXCEPTION', str(e)[:120]])
+
+        with open(out_csv, 'w', newline='', encoding='utf-8') as f_csv:
+            w = csv.writer(f_csv)
+            w.writerow(['date', 'code', 'name', 'sector', 'close', 'mktcap', 'volume', 'per', 'pbr'])
+            w.writerows(rows_out)
+
+        print(f"{date_str}: {len(rows_out)}/{len(html_files)} ta aksiya saqlandi.")
+
+print("\n=== 30 KUNLIK YAKUN ===")
+print("Jami HTML fayllar:", total_files)
+print("Muvaffaqiyatli o'qilgan:", total_ok)
+print("Xatoliklar kundaligi:", defect_file)
