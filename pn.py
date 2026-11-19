@@ -7,17 +7,24 @@ from bs4 import BeautifulSoup
 os.makedirs('data/daily', exist_ok=True)
 os.makedirs('logs', exist_ok=True)
 
-# 1 haftalik test: dastlabki 5 ta savdo kuni
-folders = sorted(glob.glob('/mnt/data/stock/20*'))[:5]
-defect_file = 'logs/defect_log_1week.csv'
+folders = sorted(glob.glob('/mnt/data/stock/20*'))
+defect_file = 'logs/defect_log_q1_q4.csv'
+write_header = not os.path.exists(defect_file)
 
-with open(defect_file, 'w', newline='', encoding='utf-8') as df_out:
+with open(defect_file, 'a', newline='', encoding='utf-8') as df_out:
     defect_writer = csv.writer(df_out)
-    defect_writer.writerow(['date', 'file', 'code', 'defect_type', 'detail'])
+    if write_header:
+        defect_writer.writerow(['date', 'file', 'code', 'defect_type', 'detail'])
 
     for idx, folder in enumerate(folders, start=1):
         date_str = os.path.basename(folder)
         out_csv = f'data/daily/{date_str}.csv'
+
+        if os.path.exists(out_csv):
+            if idx % 50 == 0 or idx == len(folders):
+                print(f"[{idx}/{len(folders)}] {date_str}: avval tayyorlangan (o'tkazildi).")
+            continue
+
         html_files = sorted(glob.glob(folder + '/*.html'))
         rows_out = []
 
@@ -65,38 +72,39 @@ with open(defect_file, 'w', newline='', encoding='utf-8') as df_out:
                             vol_val = re.sub(r'[^\d]', '', b.get_text())
                             break
 
-                mktcap_val, per_val, pbr_val = '', '', ''
+                mktcap_val = ''
                 for tr in soup.select('table tr'):
                     th = tr.find('th')
                     td = tr.find('td')
                     if not th or not td:
                         continue
-                    k = th.get_text(" ", strip=True)
-                    v = td.get_text(" ", strip=True)
-                    if '시가총액' in k and not mktcap_val:
-                        mktcap_val = re.sub(r'[^\d]', '', v)
-                    elif 'PER' in k and '추정' not in k and not per_val:
-                        m = re.search(r'[-+]?\d[\d,]*\.?\d*', v)
-                        per_val = m.group(0).replace(',', '') if m else ''
-                    elif 'PBR' in k and not pbr_val:
-                        m = re.search(r'[-+]?\d[\d,]*\.?\d*', v)
-                        pbr_val = m.group(0).replace(',', '') if m else ''
+                    if '시가총액' in th.get_text(" ", strip=True):
+                        mktcap_val = re.sub(r'[^\d]', '', td.get_text(" ", strip=True))
+                        break
 
                 if not close_val:
                     defect_writer.writerow([date_str, fname, code, 'MISSING_CLOSE', name])
                 if not sector:
                     defect_writer.writerow([date_str, fname, code, 'MISSING_SECTOR', name])
+                if not mktcap_val:
+                    defect_writer.writerow([date_str, fname, code, 'MISSING_MKTCAP', name])
 
-                rows_out.append([date_str, code, name, sector, close_val, mktcap_val, vol_val, per_val, pbr_val])
+                rows_out.append([date_str, code, name, sector, close_val, mktcap_val, vol_val])
 
             except Exception as e:
                 defect_writer.writerow([date_str, fname, code, 'PARSE_EXCEPTION', str(e)[:120]])
 
         with open(out_csv, 'w', newline='', encoding='utf-8') as f_csv:
             w = csv.writer(f_csv)
-            w.writerow(['date', 'code', 'name', 'sector', 'close', 'mktcap', 'volume', 'per', 'pbr'])
+            w.writerow(['date', 'code', 'name', 'sector', 'close', 'mktcap', 'volume'])
             w.writerows(rows_out)
 
-        print(f"[{idx}/{len(folders)}] {date_str}: {len(rows_out)}/{len(html_files)} ta saqlandi.")
+        if idx % 20 == 0 or idx == len(folders):
+            print(f"[{idx}/{len(folders)}] {date_str}: {len(rows_out)}/{len(html_files)} ta saqlandi.")
 
-print("1 haftalik test yakunlandi. Log:", defect_file)
+saved_files = sorted(glob.glob('data/daily/*.csv'))
+print("\n=== YAKUN ===")
+print("Jami papkalar:", len(folders))
+print("Tayyor CSV kunlar:", len(saved_files))
+if saved_files:
+    print("Sana oralig'i:", os.path.basename(saved_files[0])[:-4], "->", os.path.basename(saved_files[-1])[:-4])
