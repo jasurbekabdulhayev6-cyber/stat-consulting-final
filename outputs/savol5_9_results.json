@@ -1,0 +1,24 @@
+{
+  "file": "outputs/savol5_9_defect_log.csv",
+  "rows": 6,
+  "columns": [
+    "savol",
+    "tur",
+    "tavsif"
+  ],
+  "Q5": {
+    "status": "missing_operating_margin"
+  },
+  "Q6": {
+    "status": "insufficient_earnings_event_data"
+  },
+  "Q7": {
+    "status": "missing_estimate_error"
+  },
+  "Q8": {
+    "status": "missing_debt_ratio"
+  },
+  "Q9": {
+    "status": "missing_pbr"
+  }
+}

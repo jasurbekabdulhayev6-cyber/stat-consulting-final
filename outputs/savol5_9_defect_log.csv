@@ -1,0 +1,7 @@
+savol,tur,tavsif
+Q5-Q9,missing_sector,Sektor ustuni topilmadi; All_Market ishlatildi
+Q5,missing_col,Operatsion marja ustuni topilmadi
+Q6,missing_earnings_events,Earnings o'zgarish kunlari yoki panel tuzilmasi topilmadi
+Q7,missing_est_error,Prognoz xatosi yoki actual/estimate ustunlari topilmadi
+Q8,missing_debt,Qarz nisbati ustuni topilmadi
+Q9,missing_pbr,PBR ustuni topilmadi

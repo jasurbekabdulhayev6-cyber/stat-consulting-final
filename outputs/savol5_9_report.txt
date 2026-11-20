@@ -1,0 +1,11 @@
+=== SAVOLLAR 5-9 YAKUNIY HISOBOTI ===
+Fayl: outputs/savol5_9_defect_log.csv | Qatorlar: 6
+
+--- Nuqsonlar jurnali ---
+   savol                      tur                                                     tavsif
+0  Q5-Q9           missing_sector             Sektor ustuni topilmadi; All_Market ishlatildi
+1     Q5              missing_col                          Operatsion marja ustuni topilmadi
+2     Q6  missing_earnings_events  Earnings o'zgarish kunlari yoki panel tuzilmasi topilmadi
+3     Q7        missing_est_error    Prognoz xatosi yoki actual/estimate ustunlari topilmadi
+4     Q8             missing_debt                              Qarz nisbati ustuni topilmadi
+5     Q9              missing_pbr                                       PBR ustuni topilmadi
