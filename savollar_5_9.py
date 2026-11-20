@@ -34,6 +34,8 @@ if not os.path.exists(panel_path):
     csvs = glob.glob("data/*.csv")
     if not csvs:
         csvs = glob.glob("**/*.csv", recursive=True)
+    if not csvs:
+        raise FileNotFoundError("CSV fayl topilmadi.")
     panel_path = csvs[0]
 
 df = pd.read_csv(panel_path, low_memory=False)
@@ -106,7 +108,10 @@ if opm_col:
             c_cum_ret=(ret_col, lambda s: (1.0 + s.dropna()).prod() - 1.0 if len(s.dropna()) else np.nan)
         ).dropna()
         if len(comp5) > 2:
-            within_corr = comp5.groupby(sector_col).apply(lambda g: g["c_opm"].corr(g["c_cum_ret"]) if len(g) > 2 else np.nan).mean()
+            within_corr = comp5.groupby(sector_col).apply(
+                lambda g: g["c_opm"].corr(g["c_cum_ret"]) if len(g) > 2 else np.nan,
+                include_groups=False
+            ).mean()
     lo5, hi5, n5 = ci95(sec5["cum_ret"])
     results["Q5"] = {
         "sector_corr_opm_cumret": float(corr5) if pd.notna(corr5) else None,
@@ -148,7 +153,12 @@ if event_mask.sum() > 0 and ticker_col and date_col:
     for k in range(-10, 11):
         sub = ev_rows.copy()
         sub["_target_pos"] = sub["_pos"] + k
-        merged = sub.merge(df[[ticker_col, "_pos", ret_col]], left_on=[ticker_col, "_target_pos"], right_on=[ticker_col, "_pos"], how="inner")
+        merged = sub.merge(
+            df[[ticker_col, "_pos", ret_col]],
+            left_on=[ticker_col, "_target_pos"],
+            right_on=[ticker_col, "_pos"],
+            how="inner"
+        )
         lo, hi, n = ci95(merged[ret_col])
         win_stats[str(k)] = {
             "mean_ret": float(merged[ret_col].mean()) if n else None,
@@ -199,4 +209,102 @@ if err_col:
         rev_info = df.groupby(sector_col)["_rev"].agg(["count", "mean", "std"]).dropna().to_dict(orient="index")
     results["Q7"] = {"by_sector": sec7.to_dict(orient="index"), "revisions_by_sector": rev_info}
     report_lines.append("\n--- Q7: Prognoz xatosi (sektorlar kesimida) ---")
-    report_lines.append(sec7
+    report_lines.append(sec7.sort_values("abs_mean", ascending=False).head(15).to_string())
+
+    top7 = sec7.sort_values("abs_mean", ascending=False).head(12)
+    fig, ax = plt.subplots(figsize=(9, 5))
+    ax.barh(top7.index.astype(str)[::-1], top7["abs_mean"].iloc[::-1])
+    ax.set_title("Q7: Sektorlar bo'yicha o'rtacha absolyut prognoz xatosi")
+    ax.set_xlabel("|Estimate Error|")
+    plt.tight_layout()
+    plt.savefig("outputs/grafik_7_prognoz_xatosi.png", dpi=150)
+    plt.close()
+else:
+    log_defect("Q7", "missing_est_error", "Prognoz xatosi yoki actual/estimate ustunlari topilmadi")
+    results["Q7"] = {"status": "missing_estimate_error"}
+
+# Savol 8: Qarz nisbati vs Volatillik
+if debt_col:
+    df[debt_col] = pd.to_numeric(df[debt_col], errors="coerce")
+    q10 = df[ret_col].quantile(0.10)
+    df["_regime"] = np.where(df[ret_col] <= q10, "Sharp_Drop", "Ordinary")
+    sec8_all = df.groupby(sector_col).agg(
+        mean_debt=(debt_col, "mean"),
+        vol=(ret_col, "std"),
+        n=(ret_col, "count")
+    ).dropna()
+    sec8_reg = df.groupby([sector_col, "_regime"])[ret_col].std().unstack()
+    corr8 = sec8_all["mean_debt"].corr(sec8_all["vol"])
+    results["Q8"] = {
+        "corr_debt_vol": float(corr8) if pd.notna(corr8) else None,
+        "by_sector": sec8_all.join(sec8_reg).to_dict(orient="index")
+    }
+    report_lines.append(f"\n--- Q8: Qarz nisbati va volatillik korrelyatsiyasi={corr8:.4f} ---")
+    report_lines.append(sec8_all.join(sec8_reg).sort_values("vol", ascending=False).head(15).to_string())
+
+    fig, ax = plt.subplots(figsize=(8, 5))
+    ax.scatter(sec8_all["mean_debt"], sec8_all["vol"])
+    for idx, r in sec8_all.iterrows():
+        ax.annotate(str(idx)[:12], (r["mean_debt"], r["vol"]), fontsize=8)
+    ax.set_title("Q8: Qarz nisbati vs Qaytish volatilligi")
+    ax.set_xlabel("O'rtacha qarz nisbati")
+    ax.set_ylabel("Volatillik (std)")
+    plt.tight_layout()
+    plt.savefig("outputs/grafik_8_qarz_volatillik.png", dpi=150)
+    plt.close()
+else:
+    log_defect("Q8", "missing_debt", "Qarz nisbati ustuni topilmadi")
+    results["Q8"] = {"status": "missing_debt_ratio"}
+
+# Savol 9: PBR < 1 kompaniyalar taqdiri
+if pbr_col:
+    df[pbr_col] = pd.to_numeric(df[pbr_col], errors="coerce")
+    low_pbr = df[df[pbr_col] < 1.0]
+    cluster9 = low_pbr.groupby(sector_col).size().sort_values(ascending=False)
+    roe_summary = {}
+    if roe_col:
+        df[roe_col] = pd.to_numeric(df[roe_col], errors="coerce")
+        lp_roe = low_pbr.copy()
+        lp_roe["_roe_sign"] = np.where(lp_roe[roe_col] >= 0, "Positive_ROE", "Negative_ROE")
+        roe_summary = lp_roe.groupby("_roe_sign")[ret_col].agg(["count", "mean", "std"]).to_dict(orient="index")
+    rec_summary = {}
+    if ticker_col:
+        pbr_first_last = low_pbr.groupby(ticker_col)[pbr_col].agg(["first", "last"]).dropna()
+        pbr_first_last["status"] = np.where(pbr_first_last["last"] >= 1.0, "Recovered_PBR>=1", "Stayed_Low_PBR<1")
+        rec_summary = pbr_first_last["status"].value_counts().to_dict()
+    results["Q9"] = {
+        "n_low_pbr_rows": int(len(low_pbr)),
+        "top_sectors_low_pbr": cluster9.head(15).to_dict(),
+        "roe_returns_on_low_pbr": roe_summary,
+        "pbr_recovery_counts": rec_summary
+    }
+    report_lines.append(f"\n--- Q9: PBR < 1 qatorlar soni={len(low_pbr)}, Tiklanish holati={rec_summary} ---")
+    report_lines.append("Top sektorlar (PBR < 1):\n" + cluster9.head(10).to_string())
+
+    fig, ax = plt.subplots(figsize=(9, 5))
+    top9 = cluster9.head(12)
+    ax.barh(top9.index.astype(str)[::-1], top9.values[::-1])
+    ax.set_title("Q9: PBR < 1 kuzatuvlar soni (sektorlar kesimida)")
+    ax.set_xlabel("Kuzatuvlar soni")
+    plt.tight_layout()
+    plt.savefig("outputs/grafik_9_pbr_taqdiri.png", dpi=150)
+    plt.close()
+else:
+    log_defect("Q9", "missing_pbr", "PBR ustuni topilmadi")
+    results["Q9"] = {"status": "missing_pbr"}
+
+defect_df = pd.DataFrame(defects)
+defect_df.to_csv("outputs/savol5_9_defect_log.csv", index=False)
+report_lines.append("\n--- Nuqsonlar jurnali ---")
+report_lines.append(defect_df.to_string() if len(defect_df) else "Nuqsonlar aniqlanmadi.")
+
+with open("outputs/savol5_9_report.txt", "w", encoding="utf-8") as f:
+    f.write("\n".join(report_lines))
+with open("outputs/savol5_9_results.json", "w", encoding="utf-8") as f:
+    json.dump(results, f, indent=2, ensure_ascii=False)
+
+print("=== 5-9 SAVOLLAR YAKUNLANDI ===")
+print("Mavjud ustunlar:", cols)
+print("Nuqsonlar:", defects)
+for p in sorted(glob.glob("outputs/grafik_[5-9]_*.png")) + ["outputs/savol5_9_report.txt", "outputs/savol5_9_results.json"]:
+    print("Tayyor:", p)
