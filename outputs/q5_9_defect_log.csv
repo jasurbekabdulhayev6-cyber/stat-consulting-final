@@ -1,0 +1,8 @@
+question,type,detail
+Q5-Q9,proxy_return_no_ticker,Computed return via pct_change from Close
+Q5-Q9,missing_sector,Sector column missing; used All_Market
+Q5,missing_col,Operating margin column not found
+Q6,missing_earnings_events,Earnings event dates or panel structure not found
+Q7,missing_est_error,Forecast error or actual/estimate columns not found
+Q8,missing_debt,Debt ratio column not found
+Q9,missing_pbr,PBR column not found
