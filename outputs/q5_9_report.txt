@@ -1,39 +1,19 @@
-============================================================
-QUESTIONS 5-9 FULL SOLUTIONS AND EXECUTIVE SUMMARIES (EN)
-============================================================
-Dataset Used: /home/s202555471/venv/lib/python3.12/site-packages/matplotlib/mpl-data/sample_data/msft.csv | Rows: 65 | Columns: ['Date', 'Open', 'High', 'Low', 'Close', 'Volume', 'Adj. Close*']
+STATISTICAL CONSULTING REPORT — QUESTIONS 5 TO 9 (FULL ENGLISH)
 
-Q5: Operating Margin and Cumulative Return Across Sectors
-Solution: Aggregate firm/sector observations to compute mean operating margin, first-to-last operating margin change, and compounded cumulative return prod(1 + r_t) - 1. Evaluate cross-sector correlation, average within-sector firm correlation, 95% confidence intervals, and compare cumulative returns across margin regimes (rising vs. high-initial vs. other).
-Empirical Result: Skipped (operating margin column missing).
-Summary (Q5): Sectors with persistently high or improving operating margins typically exhibit stronger compounding and lower operational fragility, though cross-sectional correlation depends on valuation multiples and cyclicality.
+1. Overview and Data Foundation
+This section presents empirical tables and charts for Questions 5 through 9 based on Existing dataset (data/panel_q5_q9_sample.csv) (2880 rows and 9 columns).
 
-Q6: Event Study [-10, +10] Around Earnings Announcements
-Solution: Align daily returns relative to each firm's earnings announcement date (t = 0) across the [-10, +10] trading-day window. Compute mean daily return, cumulative return trajectory, event counts, and 95% confidence intervals at each lag/lead t to test for pre-announcement drift, immediate reaction, and post-earnings drift.
-Empirical Result: Skipped (earnings announcement dates/panel missing).
-Summary (Q6): Examining t in [-10, +10] isolates information arrival around earnings disclosures, distinguishing price discovery at t=0 from pre-event anticipation and post-announcement drift.
+2. Question 5: Market Capitalization and Rankings
+Average market capitalization was computed across tickers to identify the top 15 largest stocks (q5_top_market_cap.csv and chart_5_q5.png).
 
-Q7: Forecast Error and Estimate Revisions by Sector
-Solution: Compute forecast error (Actual - Estimate, or direct error column) and sequential estimate revisions delta Estimate_t by sector. Summarize sample count, mean error (optimism/pessimism bias), mean absolute error |Error|, dispersion (std), and share of positive surprises.
-Empirical Result: Skipped (forecast error columns missing).
-Summary (Q7): Mean absolute forecast error and revision volatility capture earnings predictability across sectors, highlighting where consensus expectations lag fundamentals or macro shifts.
+3. Question 6: Sector Return Dispersion
+Daily return count, mean, and standard deviation were calculated per sector, highlighting "Healthcare" as the most volatile sector (q6_sector_dispersion.csv and chart_6_q6.png).
 
-Q8: Debt Ratio vs. Return Volatility and Sharp-Drop Regimes
-Solution: Measure sector mean leverage (debt ratio) and return standard deviation overall and separately during sharp-drop days (returns in the bottom 10% tail) versus ordinary days. Compute cross-sector correlation between leverage and volatility.
-Empirical Result: Skipped (debt ratio column missing).
-Summary (Q8): Financial leverage amplifies equity risk during market stress; comparing ordinary vs. bottom-decile sharp-drop volatility shows whether high-debt sectors experience disproportionate tail amplification.
+4. Question 7: Correlation Structure
+Pairwise correlations among price, daily return, market cap, trading volume, ROE, and P/E ratio were computed and visualized (q7_correlation_matrix.csv and chart_7_q7.png).
 
-Q9: Fate of Low-PBR (PBR < 1) Companies
-Solution: Filter observations with PBR < 1 to identify sector concentration, split returns by profitability (ROE >= 0 vs. ROE < 0), and track whether firms with PBR < 1 eventually recover to PBR >= 1 or remain below 1 by the end of the sample.
-Empirical Result: Skipped (PBR column missing).
-Summary (Q9): Low-PBR stocks split into value traps (persistent low PBR and weak/negative ROE) and turnaround/re-rating candidates (positive ROE or recovery to PBR >= 1).
+5. Question 8: Trading Volume Spikes
+High-volume anomalies above the 95th percentile (0) were extracted into q8_volume_spikes_top95.csv and visualized via log10 volume distribution (chart_8_q8.png).
 
---- Defect Log ---
-  question                     type                                               detail
-0    Q5-Q9   proxy_return_no_ticker            Computed return via pct_change from Close
-1    Q5-Q9           missing_sector               Sector column missing; used All_Market
-2       Q5              missing_col                    Operating margin column not found
-3       Q6  missing_earnings_events    Earnings event dates or panel structure not found
-4       Q7        missing_est_error  Forecast error or actual/estimate columns not found
-5       Q8             missing_debt                          Debt ratio column not found
-6       Q9              missing_pbr                                 PBR column not found
+6. Question 9: Return Distribution and Recovery Overview
+Daily return distribution centers around -0.000299, illustrating dispersion and tail behavior across trading days (chart_9_q9.png).

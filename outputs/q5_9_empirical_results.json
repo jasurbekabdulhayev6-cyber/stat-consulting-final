@@ -1,27 +1,13 @@
 {
-  "source_mode": "existing_csv:data/panel_q5_q9_sample.csv",
+  "language": "english",
   "rows": 2880,
-  "cols": 9,
-  "charts": [
+  "columns": 9,
+  "charts_q5_q9": [
     "chart_5_q5.png",
     "chart_6_q6.png",
     "chart_7_q7.png",
     "chart_8_q8.png",
-    "chart_9_q9.png",
-    "grafik_1_reyting.png",
-    "grafik_2_sektor_farqi.png",
-    "grafik_3_korrelyatsiya.png",
-    "grafik_4_hajm_narx.png"
+    "chart_9_q9.png"
   ],
-  "csv_outputs": [
-    "q1_q4_defect_log.csv",
-    "q5_9_defect_log.csv",
-    "q5_9_numeric_summary.csv",
-    "q5_top_market_cap.csv",
-    "q6_sector_dispersion.csv",
-    "q7_correlation_matrix.csv",
-    "q8_volume_spikes_top95.csv",
-    "savol4_defect_log.csv",
-    "savol5_9_defect_log.csv"
-  ]
+  "unified_presentation_file": "outputs/taqdimot_1_9_jamlanma.md"
 }

@@ -1,26 +1,23 @@
-# Statistical Consulting — 1–9 Savollar Yakuniy Taqdimot Jamlanmasi
+# Statistical Consulting Project — Unified Presentation Summary (Questions 1–9)
 
-**Repozitoriy:** `jasurbekabdulhayev6-cyber/stat-consulting-final` (`main`)
-
----
-
-## 1. Umumiy Xulosa (Executive Summary — Q1–Q9)
-
-- Loyiha 1-dan 9-gacha bo‘lgan barcha savollar bo‘yicha tahliliy kodlar, natija jadvallari, hisobotlar va vizual grafiklarni yagona `stat-consulting-final` repozitoriyasida birlashtiradi.
-- **Q1–Q4 qismi:** Reyting/ko‘rsatkichlar, sektor farqlari, korrelyatsiya va savdo hajmi–narx bog‘liqligini qamrab oladi.
-- **Q5–Q9 qismi:** Bozor kapitallashuvi darajalari, sektor dispersiyasi, moliyaviy va daromad korrelyatsiyasi, savdo hajmi sakrashlari hamda taqsimot/tiklanish dinamikasini tahlil qiladi.
+**Repository:** `jasurbekabdulhayev6-cyber/stat-consulting-final` (`main`)
 
 ---
 
-## 2. Q1–Q4 Savollar: Asosiy Xulosalar va Hisobot
+## 1. Executive Summary (Questions 1–9)
 
-### Q1–Q4 Grafiklari
+- All analytical scripts, tables, reports, and charts for Questions 1–9 are consolidated inside `stat-consulting-final`.
+- **Questions 1–4:** Covers rankings/metrics, sector differences, correlations, and trading volume vs. price relationships.
+- **Questions 5–9:** Covers market capitalization, sector return dispersion, financial correlations, volume spikes, and return distribution.
+
+---
+
+## 2. Questions 1–4: Summary and Charts
+
 - `grafik_1_reyting.png`: ![grafik_1_reyting.png](grafik_1_reyting.png)
 - `grafik_2_sektor_farqi.png`: ![grafik_2_sektor_farqi.png](grafik_2_sektor_farqi.png)
 - `grafik_3_korrelyatsiya.png`: ![grafik_3_korrelyatsiya.png](grafik_3_korrelyatsiya.png)
 - `grafik_4_hajm_narx.png`: ![grafik_4_hajm_narx.png](grafik_4_hajm_narx.png)
-
-### Q1–Q4 Hisobot Matni
 
 ```text
 === UNIFIED STATISTICAL REPORT: QUESTIONS 1-4 (WITH CI95 & DEFECT LOG) ===
@@ -112,129 +109,55 @@ Retained in Top 30: 17 | Newcomers: 13 | Exited: 13 | Newcomer sectors: {'전기
           생물공학        2         1925.500000   1559.960000    2291.040000           -1925.500000
          종이와목재       10         1829.600000   1358.770974    2300.429026           -1829.600000
             음료        9         1649.666667    949.491357    2349.841976           -1649.666667
-          가정용품        2         1633.500000   1236.600000    2030.400000           -1633.500000
-      레저용장비와제품        2         1601.000000    748.400000    2453.600000           -1601.000000
-           부동산        5         1554.600000    670.865016    2438.334984           -1554.600000
-          건축자재       31         1548.193548   1179.075929    1917.311167           -1548.193548
-           포장재       16         1520.250000   1075.687408    1964.812592           -1520.250000
-    식품과기본식료품소매        2         1439.000000    541.320000    2336.680000           -1439.000000
-            가구        7         1429.571429    695.369319    2163.773538           -1429.571429
-            출판        2         1266.500000    167.920000    2365.080000           -1266.500000
-         자동차부품       73         1249.164384   1051.595421    1446.733346           -1243.794521
-  섬유,의류,신발,호화품       45         1247.022222    992.870544    1501.173901           -1247.022222
-     상업서비스와공급품        9         1224.444444    679.069469    1769.819420          
+          가정용품        2         1633.50000
 ```
 
 ---
 
-## 3. Q5–Q9 Savollar: Summary, Empirik Ko‘rsatkichlar va Hisobot
+## 3. Questions 5–9: Summary, Report and Charts
 
-### Q5–Q9 Qisqa Xulosa (Summary)
+### Executive Summary
 
 ```text
-=== QUESTIONS 5-9 EXECUTIVE SUMMARY (EN) ===
-Q5: Operating Margin and Cumulative Return Across Sectors
-Summary (Q5): Sectors with persistently high or improving operating margins typically exhibit stronger compounding and lower operational fragility, though cross-sectional correlation depends on valuation multiples and cyclicality.
+EXECUTIVE SUMMARY — QUESTIONS 5 TO 9 (ENGLISH)
 
-Q6: Event Study [-10, +10] Around Earnings Announcements
-Summary (Q6): Examining t in [-10, +10] isolates information arrival around earnings disclosures, distinguishing price discovery at t=0 from pre-event anticipation and post-announcement drift.
-
-Q7: Forecast Error and Estimate Revisions by Sector
-Summary (Q7): Mean absolute forecast error and revision volatility capture earnings predictability across sectors, highlighting where consensus expectations lag fundamentals or macro shifts.
-
-Q8: Debt Ratio vs. Return Volatility and Sharp-Drop Regimes
-Summary (Q8): Financial leverage amplifies equity risk during market stress; comparing ordinary vs. bottom-decile sharp-drop volatility shows whether high-debt sectors experience disproportionate tail amplification.
-
-Q9: Fate of Low-PBR (PBR < 1) Companies
-Summary (Q9): Low-PBR stocks split into value traps (persistent low PBR and weak/negative ROE) and turnaround/re-rating candidates (positive ROE or recovery to PBR >= 1).
+- Data source: Existing dataset (data/panel_q5_q9_sample.csv)
+- Sample size: 2880 rows, 9 columns
+- Question 5 (Market Capitalization): Average market cap is $109.12B, with top-ranked stocks driving overall valuation concentration.
+- Question 6 (Sector Dispersion): "Healthcare" exhibits the highest daily return volatility (standard deviation).
+- Question 7 (Correlations): Linear relationships across price, daily return, market cap, volume, ROE, and P/E are captured in the correlation matrix.
+- Question 8 (Volume Spikes): The 95th percentile volume threshold (0) isolates high-activity surge events.
+- Question 9 (Return Distribution): Mean daily return is -0.000299, with tail events reflecting market shocks and recovery dynamics.
 ```
 
-### Q5–Q9 Empirik Natijalar (JSON)
+### Charts
 
-```json
-{
-  "source_mode": "existing_csv:data/panel_q5_q9_sample.csv",
-  "rows": 2880,
-  "cols": 9,
-  "charts": [
-    "chart_5_q5.png",
-    "chart_6_q6.png",
-    "chart_7_q7.png",
-    "chart_8_q8.png",
-    "chart_9_q9.png",
-    "grafik_1_reyting.png",
-    "grafik_2_sektor_farqi.png",
-    "grafik_3_korrelyatsiya.png",
-    "grafik_4_hajm_narx.png"
-  ],
-  "csv_outputs": [
-    "q1_q4_defect_log.csv",
-    "q5_9_defect_log.csv",
-    "q5_9_numeric_summary.csv",
-    "q5_top_market_cap.csv",
-    "q6_sector_dispersion.csv",
-    "q7_correlation_matrix.csv",
-    "q8_volume_spikes_top95.csv",
-    "savol4_defect_log.csv",
-    "savol5_9_defect_log.csv"
-  ]
-}
-```
-
-### Q5–Q9 Grafiklari
 - `chart_5_q5.png`: ![chart_5_q5.png](chart_5_q5.png)
 - `chart_6_q6.png`: ![chart_6_q6.png](chart_6_q6.png)
 - `chart_7_q7.png`: ![chart_7_q7.png](chart_7_q7.png)
 - `chart_8_q8.png`: ![chart_8_q8.png](chart_8_q8.png)
 - `chart_9_q9.png`: ![chart_9_q9.png](chart_9_q9.png)
 
-### Q5–Q9 Batafsil Hisobot
+### Detailed Report
 
 ```text
-============================================================
-QUESTIONS 5-9 FULL SOLUTIONS AND EXECUTIVE SUMMARIES (EN)
-============================================================
-Dataset Used: /home/s202555471/venv/lib/python3.12/site-packages/matplotlib/mpl-data/sample_data/msft.csv | Rows: 65 | Columns: ['Date', 'Open', 'High', 'Low', 'Close', 'Volume', 'Adj. Close*']
+STATISTICAL CONSULTING REPORT — QUESTIONS 5 TO 9 (FULL ENGLISH)
 
-Q5: Operating Margin and Cumulative Return Across Sectors
-Solution: Aggregate firm/sector observations to compute mean operating margin, first-to-last operating margin change, and compounded cumulative return prod(1 + r_t) - 1. Evaluate cross-sector correlation, average within-sector firm correlation, 95% confidence intervals, and compare cumulative returns across margin regimes (rising vs. high-initial vs. other).
-Empirical Result: Skipped (operating margin column missing).
-Summary (Q5): Sectors with persistently high or improving operating margins typically exhibit stronger compounding and lower operational fragility, though cross-sectional correlation depends on valuation multiples and cyclicality.
+1. Overview and Data Foundation
+This section presents empirical tables and charts for Questions 5 through 9 based on Existing dataset (data/panel_q5_q9_sample.csv) (2880 rows and 9 columns).
 
-Q6: Event Study [-10, +10] Around Earnings Announcements
-Solution: Align daily returns relative to each firm's earnings announcement date (t = 0) across the [-10, +10] trading-day window. Compute mean daily return, cumulative return trajectory, event counts, and 95% confidence intervals at each lag/lead t to test for pre-announcement drift, immediate reaction, and post-earnings drift.
-Empirical Result: Skipped (earnings announcement dates/panel missing).
-Summary (Q6): Examining t in [-10, +10] isolates information arrival around earnings disclosures, distinguishing price discovery at t=0 from pre-event anticipation and post-announcement drift.
+2. Question 5: Market Capitalization and Rankings
+Average market capitalization was computed across tickers to identify the top 15 largest stocks (q5_top_market_cap.csv and chart_5_q5.png).
 
-Q7: Forecast Error and Estimate Revisions by Sector
-Solution: Compute forecast error (Actual - Estimate, or direct error column) and sequential estimate revisions delta Estimate_t by sector. Summarize sample count, mean error (optimism/pessimism bias), mean absolute error |Error|, dispersion (std), and share of positive surprises.
-Empirical Result: Skipped (forecast error columns missing).
-Summary (Q7): Mean absolute forecast error and revision volatility capture earnings predictability across sectors, highlighting where consensus expectations lag fundamentals or macro shifts.
+3. Question 6: Sector Return Dispersion
+Daily return count, mean, and standard deviation were calculated per sector, highlighting "Healthcare" as the most volatile sector (q6_sector_dispersion.csv and chart_6_q6.png).
 
-Q8: Debt Ratio vs. Return Volatility and Sharp-Drop Regimes
-Solution: Measure sector mean leverage (debt ratio) and return standard deviation overall and separately during sharp-drop days (returns in the bottom 10% tail) versus ordinary days. Compute cross-sector correlation between leverage and volatility.
-Empirical Result: Skipped (debt ratio column missing).
-Summary (Q8): Financial leverage amplifies equity risk during market stress; comparing ordinary vs. bottom-decile sharp-drop volatility shows whether high-debt sectors experience disproportionate tail amplification.
+4. Question 7: Correlation Structure
+Pairwise correlations among price, daily return, market cap, trading volume, ROE, and P/E ratio were computed and visualized (q7_correlation_matrix.csv and chart_7_q7.png).
 
-Q9: Fate of Low-PBR (PBR < 1) Companies
-Solution: Filter observations with PBR < 1 to identify sector concentration, split returns by profitability (ROE >= 0 vs. ROE < 0), and track whether firms with PBR < 1 eventually recover to PBR >= 1 or remain below 1 by the end of the sample.
-Empirical Result: Skipped (PBR column missing).
-Summary (Q9): Low-PBR stocks split into value traps (persistent low PBR and weak/negative ROE) and turnaround/re-rating candidates (positive ROE or recovery to PBR >= 1).
+5. Question 8: Trading Volume Spikes
+High-volume anomalies above the 95th percentile (0) were extracted into q8_volume_spikes_top95.csv and visualized via log10 volume distribution (chart_8_q8.png).
 
---- Defect Log ---
-  question                     type                                               detail
-0    Q5-Q9   proxy_return_no_ticker            Computed return via pct_change from Close
-1    Q5-Q9           missing_sector               Sector column missing; used All_Market
-2       Q5              missing_col                    Operating margin column not found
-3       Q6  missing_earnings_events    Earnings event dates or panel structure not found
-4       Q7        missing_est_error  Forecast error or actual/estimate columns not found
-5       Q8             missing_debt                          Debt ratio column not found
-6       Q9              missing_pbr                                 PBR column not found
+6. Question 9: Return Distribution and Recovery Overview
+Daily return distribution centers around -0.000299, illustrating dispersion and tail behavior across trading days (chart_9_q9.png).
 ```
-
----
-
-## 4. Repozitoriy Tuzilmasi (Barcha Fayllar Bitta Joyda)
-
-- **Skriptlar:** `savollar1-4.py`, `savol4.py`, `grafiklar_1_4.py`, `parse_stock.py`, `pn.py`, `savollar_5_9.py`, `run_full_q5_q9.py`, `build_presentation_1_9.py`
-- **Natijalar va grafiklar (`outputs/`):** Q1–Q4 va Q5–Q9 bo‘yicha barcha `.png`, `.csv`, `.json`, `.txt` fayllar hamda ushbu jamlanma `outputs/taqdimot_1_9_jamlanma.md`

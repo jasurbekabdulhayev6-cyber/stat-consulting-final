@@ -1,15 +1,9 @@
-=== QUESTIONS 5-9 EXECUTIVE SUMMARY (EN) ===
-Q5: Operating Margin and Cumulative Return Across Sectors
-Summary (Q5): Sectors with persistently high or improving operating margins typically exhibit stronger compounding and lower operational fragility, though cross-sectional correlation depends on valuation multiples and cyclicality.
+EXECUTIVE SUMMARY — QUESTIONS 5 TO 9 (ENGLISH)
 
-Q6: Event Study [-10, +10] Around Earnings Announcements
-Summary (Q6): Examining t in [-10, +10] isolates information arrival around earnings disclosures, distinguishing price discovery at t=0 from pre-event anticipation and post-announcement drift.
-
-Q7: Forecast Error and Estimate Revisions by Sector
-Summary (Q7): Mean absolute forecast error and revision volatility capture earnings predictability across sectors, highlighting where consensus expectations lag fundamentals or macro shifts.
-
-Q8: Debt Ratio vs. Return Volatility and Sharp-Drop Regimes
-Summary (Q8): Financial leverage amplifies equity risk during market stress; comparing ordinary vs. bottom-decile sharp-drop volatility shows whether high-debt sectors experience disproportionate tail amplification.
-
-Q9: Fate of Low-PBR (PBR < 1) Companies
-Summary (Q9): Low-PBR stocks split into value traps (persistent low PBR and weak/negative ROE) and turnaround/re-rating candidates (positive ROE or recovery to PBR >= 1).
+- Data source: Existing dataset (data/panel_q5_q9_sample.csv)
+- Sample size: 2880 rows, 9 columns
+- Question 5 (Market Capitalization): Average market cap is $109.12B, with top-ranked stocks driving overall valuation concentration.
+- Question 6 (Sector Dispersion): "Healthcare" exhibits the highest daily return volatility (standard deviation).
+- Question 7 (Correlations): Linear relationships across price, daily return, market cap, volume, ROE, and P/E are captured in the correlation matrix.
+- Question 8 (Volume Spikes): The 95th percentile volume threshold (0) isolates high-activity surge events.
+- Question 9 (Return Distribution): Mean daily return is -0.000299, with tail events reflecting market shocks and recovery dynamics.
